@@ -1,0 +1,5 @@
+enable-notifications = false
+notification-command = notify-send -i '%a' '%s' '%m'
+
+contacts-autohide = true
+color = true
