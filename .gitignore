@@ -3,3 +3,5 @@
 .config/mpd/state_file
 .config/mutt/accounts
 .config/mutt/.mailsynclastrun
+.config/ncmpcpp/error.log
+.config/ncmpcpp/ncmpcpp-ueberzug
