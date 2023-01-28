@@ -1,0 +1,9 @@
+# vim: filetype=neomuttrc
+source /usr/local/share/mutt-wizard/mutt-wizard.muttrc
+macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro index A \
+    "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" \
+    "mark all new as read"
+source /home/lee/.config/mutt/accounts/lee@imre.al.muttrc
+macro index,pager i1 '<sync-mailbox><enter-command>source /home/lee/.config/mutt/accounts/lee@imre.al.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to lee@imre.al"

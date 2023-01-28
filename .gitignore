@@ -1,3 +1,5 @@
 .config/mpd/database
 .config/mpd/pid_file
 .config/mpd/state_file
+.config/mutt/accounts
+.config/mutt/.mailsynclastrun
