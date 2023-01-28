@@ -2,8 +2,8 @@
 
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.bin:$PATH"
 export PATH="$HOME/.config/dwm/dwmblocks/scripts:$PATH"
-export PATH="$HOME/scripts:$PATH"
 export PATH="$HOME/.fvwm/scripts:$PATH"
 export PATH="$HOME/.config/ncmpcpp/ncmpcpp-ueberzug/:$PATH"
 export PATH="$HOME/clone/signal-cli/build/install/signal-cli/bin/:$PATH"
