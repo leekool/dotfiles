@@ -1,0 +1,28 @@
+[global]
+    monitor = 0
+    follow = keyboard
+    width = 370
+    height = 350
+    origin = bottom-right
+    offset = 8x8
+    padding = 2
+    horizontal_padding = 2
+    transparency = 25
+    font = Pragmata Pro 11
+    format = "<b>%s</b>\n%b"
+
+[urgency_low]
+    background = "#352f2a"
+    foreground = "#9e9f9f"
+    timeout = 3
+
+[urgency_normal]
+    background = "#352f2a"
+    foreground = "#9e9f9f"
+    frame_color = "#222020"
+    timeout = 5
+
+[urgency_critical]
+    background = "#352f2a"
+    foreground = "#9e9f9f"
+    timeout = 10
