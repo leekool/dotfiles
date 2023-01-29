@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # script to work with emacs daemon - opens file in new window if emacs isn't open
-# opens file in existing emacs window if emacs is open
+# opens file in new buffer if emacs is open
 # if no argument is provided, opens doom-dashboard in new frame/current frame
 # depending on whether emacs is already open
 
