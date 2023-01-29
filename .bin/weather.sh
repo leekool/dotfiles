@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# weather display for FvwmScript-KoolTime
+
 readarray -t weather < <(curl -s "wttr.in/sydney?format=%C\n%t")
 
 weather[1]=$(echo ${weather[1]} | tr -d '+C')

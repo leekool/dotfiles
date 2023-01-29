@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# ascii time display for FvwmScript-KoolTime
+
 TIME=$(date "+%H:%M" | figlet -f lean)
 
 IFS=$'\n'; arrTIME=($TIME); unset IFS;

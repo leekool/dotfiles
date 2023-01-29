@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# desktop cycle script for fvwm
+
 CURRENT=$(xdotool get_desktop)
 
 case $CURRENT in

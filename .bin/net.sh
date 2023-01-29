@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# network download/upload display for FvwmScript-LoadMeter
+
 update() {
     sum=0
     for arg; do

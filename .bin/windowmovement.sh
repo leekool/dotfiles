@@ -84,10 +84,3 @@ else
             ;;
     esac
 fi
-
-# side may be irrelevant
-# if      ((xpos >= 1920 && xpos <= 1930)) || ((xpos >= 0 && xpos <= 10)); then
-#     side="left"
-# else
-#     side="right"
-# fi
