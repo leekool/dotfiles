@@ -65,4 +65,9 @@
   :repo "AdamNiederer/vue-mode"
   :files ("*.el")))
 
+(package! ox-moderncv :recipe
+ (:host github
+  :repo "Titan-C/org-cv"
+  :files ("ox-moderncv.el")))
+
 (package! pdf-tools :built-in 'prefer)
