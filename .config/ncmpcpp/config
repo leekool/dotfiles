@@ -31,7 +31,7 @@ mpd_connection_timeout = 5
 #
 ## Needed for tag editor and file operations to work.
 ##
-mpd_music_dir = "/run/media/lee/6430-6630/music/"
+mpd_music_dir = "/run/media/lee/9C33-6BBD/music/"
 
 execute_on_song_change="~/.config/ncmpcpp/ncmpcpp-ueberzug/ncmpcpp_cover_art.sh"
 #

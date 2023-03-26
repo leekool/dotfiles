@@ -11,8 +11,12 @@ export EDITOR="emacsclient -t"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 export BROWSER="firefox $1 >/dev/null 2>&1 & disown -a"
 export CHROME_PATH="brave";
+export PYENV_ROOT="$HOME/.pyenv"
 
 alias ls='ls --color=auto'
+
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
