@@ -42,7 +42,8 @@
 
 (setq confirm-kill-emacs nil)
 
-(setq doom-theme 'doom-tomorrow-night)
+;; (setq doom-theme 'doom-tomorrow-night)
+(setq doom-theme 'doom-gruvbox)
 
 (after! doom-themes
   (setq doom-themes-enable-bold t
@@ -52,11 +53,21 @@
   (setq org-hide-emphasis-markers t))
 
 (custom-set-faces!
-  '(font-lock-comment-face :slant italic))
+  '(font-lock-comment-face :slant italic)
+  '(default :background "#1D2122"))
 
 ;; vterm
 (setq vterm-shell "fish")
 (setq vterm-toggle-hide-method nil)
+
+;; directory of file in current buffer
+(setq buffer-cd (if buffer-file-name (file-name-directory buffer-file-name) default-directory))
+
+(defun vterm-in-directory (directory)
+  "Open vterm in DIRECTORY. Primarily for use with emacsclient."
+  (interactive "Directory: ")
+  (cd directory)
+  (vterm-toggle-cd))
 
 ;; control + delete/backspace whole word
 (defun delete-word (arg)

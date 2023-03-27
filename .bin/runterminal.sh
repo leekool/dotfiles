@@ -7,5 +7,5 @@ window=$(xdotool getactivewindow getwindowname)
 if [[ "$window" != *"Emacs"* ]]; then
     alacritty;
 else
-    emacsclient -e "(vterm-toggle)"
+    emacsclient -e "(vterm-in-directory buffer-cd)"
 fi
