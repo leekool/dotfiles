@@ -41,7 +41,7 @@
 (setq doom-font (font-spec :family "PragmataPro Mono" :size 19))
 
 (setq confirm-kill-emacs nil)
-
+(setq doom-themes-treemacs-enable-variable-pitch nil)
 ;; (setq doom-theme 'doom-tomorrow-night)
 (setq doom-theme 'doom-gruvbox)
 
