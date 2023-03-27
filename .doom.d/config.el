@@ -94,7 +94,10 @@
 
 (global-set-key (kbd "C-c o") 'switch-to-minibuffer)
 (global-set-key (kbd "M-o") 'other-window)
-(global-set-key (kbd "s-SPC") 'vterm-toggle)
+
+(map! :leader
+      "k" #'kill-buffer-and-window)
+
 (map! "C-c C-r" #'replace-string)
 
 (add-hook! 'rainbow-mode-hook (hl-line-mode (if rainbow-mode -1 +1)))
