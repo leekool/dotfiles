@@ -20,6 +20,7 @@ alias ls="exa --long --no-user --git"
 alias exitwm="sudo systemctl restart ly.service"
 alias serve="ng serve -o --host $(ip addr | awk 'BEGIN { FS="[[:blank:]/]+" } /inet/ { print $3 }' | sed -n '3 p')"
 alias emacs="runemacs.sh"
+alias cdb="cd $(emacsclient -e 'buffer-cd' | tr -d '\"')"
 
 function fish_greeting
 end

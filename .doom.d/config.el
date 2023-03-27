@@ -88,7 +88,7 @@
   (interactive)
   (if (active-minibuffer-window)
       (select-window (active-minibuffer-window))
-    (error "Minibuffer is not active")))
+    (error "No minibuffer")))
 
 (global-set-key (kbd "C-c o") 'switch-to-minibuffer)
 (global-set-key (kbd "M-o") 'other-window)
