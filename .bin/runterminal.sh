@@ -10,6 +10,6 @@ else
     if [[ "$window" == *"vterm"* ]]; then
         emacsclient -e "(other-window 1)"
     else
-        emacsclient -e "(vterm-in-directory buffer-cd)"
+        emacsclient -e "(vterm-in-directory (file-name-directory (buffer-file-name (window-buffer))))"
     fi
 fi

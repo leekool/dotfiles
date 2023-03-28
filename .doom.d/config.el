@@ -59,8 +59,6 @@
 (setq vterm-shell "fish")
 (setq vterm-toggle-hide-method nil)
 
-(setq buffer-cd (if buffer-file-name (file-name-directory buffer-file-name) default-directory)) ;; directory of file in current buffer
-
 (defun vterm-in-directory (directory)
   "Open vterm in DIRECTORY. Primarily for use with emacsclient."
   (interactive "DDirectory: ")
