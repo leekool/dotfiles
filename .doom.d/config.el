@@ -41,7 +41,6 @@
 (setq doom-font (font-spec :family "PragmataPro Mono" :size 19))
 
 (setq confirm-kill-emacs nil)
-(setq doom-themes-treemacs-enable-variable-pitch nil)
 ;; (setq doom-theme 'doom-tomorrow-night)
 (setq doom-theme 'doom-gruvbox)
 
@@ -64,9 +63,15 @@
 
 (defun vterm-in-directory (directory)
   "Open vterm in DIRECTORY. Primarily for use with emacsclient."
-  (interactive "Directory: ")
+  (interactive "DDirectory: ")
   (cd directory)
   (vterm-toggle-cd))
+
+;; treemacs
+(setq doom-themes-treemacs-enable-variable-pitch nil)
+(setq treemacs-width 25)
+(custom-set-faces
+ '(treemacs-root-face ((t (:height 1.0)))))
 
 ;; control + delete/backspace whole word
 (defun delete-word (arg)
