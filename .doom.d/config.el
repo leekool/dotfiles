@@ -60,11 +60,24 @@
   (setq vterm-shell "fish")
   (setq vterm-toggle-hide-method nil))
 
+(use-package! vterm-toggle
+  :bind
+  (("C-`"        . vterm-toggle)
+   :map vterm-mode-map
+   ("<C-return>" . vterm-toggle-insert-cd))
+  :config
+  (add-to-list 'display-buffer-alist
+     '("\*vterm\*"
+       (display-buffer-in-side-window)
+       (window-height . 0.1)
+       (side . bottom)
+       (slot . 0))))
+
 ;; this still doesn't work perfectly
 (defun vterm-in-directory (directory)
   "Open vterm in DIRECTORY. If vterm is already open, CD into DIRECTORY."
   (interactive "DDirectory: ")
-  (if (get-buffer vterm-buffer-name)
+  (if (get-buffer "*vterm*")
       (progn
         (switch-to-buffer-other-window (get-buffer vterm-buffer-name))
         (vterm--goto-line -1)
@@ -75,6 +88,7 @@
                                        (vterm-send-return)))))
     (cd directory)
     (vterm-toggle-cd)))
+
 
 ;; treemacs
 (setq doom-themes-treemacs-enable-variable-pitch nil)
