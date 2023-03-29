@@ -56,14 +56,25 @@
   '(default :background "#1D2122"))
 
 ;; vterm
-(setq vterm-shell "fish")
-(setq vterm-toggle-hide-method nil)
+(after! vterm
+  (setq vterm-shell "fish")
+  (setq vterm-toggle-hide-method nil))
 
+;; this still doesn't work perfectly
 (defun vterm-in-directory (directory)
-  "Open vterm in DIRECTORY. Primarily for use with emacsclient."
+  "Open vterm in DIRECTORY. If vterm is already open, CD into DIRECTORY."
   (interactive "DDirectory: ")
-  (cd directory)
-  (vterm-toggle-cd))
+  (if (get-buffer vterm-buffer-name)
+      (progn
+        (switch-to-buffer-other-window (get-buffer vterm-buffer-name))
+        (vterm--goto-line -1)
+        (vterm-send "C-c")
+        (run-at-time "0.1 sec" nil (lexical-let ((dir directory))
+                                     (lambda ()
+                                       (vterm-send-string (concat "cd " dir))
+                                       (vterm-send-return)))))
+    (cd directory)
+    (vterm-toggle-cd)))
 
 ;; treemacs
 (setq doom-themes-treemacs-enable-variable-pitch nil)
@@ -99,7 +110,8 @@
 (global-set-key (kbd "M-o") 'other-window)
 
 (map! :leader
-      "k" #'kill-buffer-and-window)
+      "k" #'kill-buffer-and-window
+      "!" #'flycheck-list-errors)
 
 (map! "C-c C-r" #'replace-string)
 
