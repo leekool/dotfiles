@@ -44,6 +44,9 @@
 ;; (setq doom-theme 'doom-tomorrow-night)
 (setq doom-theme 'doom-gruvbox)
 
+(after! evil
+  (evil-set-initial-state 'vterm-mode 'insert))
+
 (after! doom-themes
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t))
@@ -60,19 +63,6 @@
   (setq vterm-shell "fish")
   (setq vterm-toggle-hide-method nil))
 
-(use-package! vterm-toggle
-  :bind
-  (("C-`"        . vterm-toggle)
-   :map vterm-mode-map
-   ("<C-return>" . vterm-toggle-insert-cd))
-  :config
-  (add-to-list 'display-buffer-alist
-     '("\*vterm\*"
-       (display-buffer-in-side-window)
-       (window-height . 0.1)
-       (side . bottom)
-       (slot . 0))))
-
 ;; this still doesn't work perfectly
 (defun vterm-in-directory (directory)
   "Open vterm in DIRECTORY. If vterm is already open, CD into DIRECTORY."
@@ -87,8 +77,13 @@
                                        (vterm-send-string (concat "cd " dir))
                                        (vterm-send-return)))))
     (cd directory)
+    (add-to-list 'display-buffer-alist
+       '("\*vterm\*"
+         (display-buffer-in-side-window)
+         (window-height . 0.1)
+         (slide . bottom)
+         (slot . 0)))
     (vterm-toggle-cd)))
-
 
 ;; treemacs
 (setq doom-themes-treemacs-enable-variable-pitch nil)
