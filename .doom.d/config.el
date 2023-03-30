@@ -1,3 +1,9 @@
+;;  _
+;; | | ___  ___ _ __ ___   __ _  ___ ___
+;; | |/ _ \/ _ \ '_ ` _ \ / _` |/ __/ __|
+;; | |  __/  __/ | | | | | (_| | (__\__ \
+;; |_|\___|\___|_| |_| |_|\__,_|\___|___/
+;;
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
 ;;
@@ -29,11 +35,12 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
 (server-start)
 
 (map! :leader
       "k" #'kill-buffer-and-window
-      "r s" #'replace-string
+      "r R" #'replace-string
       "r r" #'replace-string-in-region
       "!" #'+default/diagnostics)
 
@@ -75,12 +82,13 @@
 
 (with-eval-after-load 'typescript-mode (add-hook 'typescript-mode-hook #'lsp))
 
-;; control + delete/backspace whole word
 (defun delete-word (arg)
+  "Delete word forwards."
   (interactive "p")
   (delete-region (point) (progn (forward-word arg) (point))))
 
 (defun backward-delete-word (arg)
+  "Delete word backwards."
   (interactive "p")
   (delete-word (- arg)))
 
@@ -97,7 +105,7 @@
     (error "No minibuffer")))
 
 (defun vterm-in-directory (directory)
-  "Open vterm in DIRECTORY. If vterm is already open, CD into DIRECTORY."
+  "Open vterm in DIRECTORY. If vterm is already open, focus vterm."
   (interactive "DDirectory: ")
   (if (get-buffer "*vterm*")
       (progn
@@ -109,7 +117,7 @@
         ;;                                (vterm-send-string (concat "cd " dir))
         ;;                                (vterm-send-return)))))
     (cd directory)
-    (add-to-list 'display-buffer-list
+    (add-to-list 'display-buffer-alist
        '("\*vterm\*"
          (display-buffer-in-side-window)
          (window-height . 0.1)
