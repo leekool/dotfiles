@@ -45,35 +45,31 @@
 (setq user-full-name "LEE"
       user-mail-address "lee@imre.al"
       confirm-kill-emacs nil
-      display-line-numbers-type t)
+      display-line-numbers-type t
+      doom-theme 'doom-gruvbox
+      doom-themes-enable-bold t
+      doom-themes-enable-italic t
+      doom-font (font-spec :family "PragmataPro Mono" :size 19)
+      doom-themes-treemacs-enable-variable-pitch nil
+      org-hide-emphasis-markers t
+      org-directory "~/org/")
 
 (custom-set-faces!
   '(font-lock-comment-face :slant italic)
   '(default :background "#1D2122"))
 
-(after! doom-themes
-  (setq doom-theme 'doom-gruvbox
-        doom-themes-enable-bold t
-        doom-themes-enable-italic t
-        doom-font (font-spec :family "PragmataPro Mono" :size 19)))
+(custom-set-faces
+  '(treemacs-root-face ((t (:height 1.0)))))
 
 (after! evil
   (evil-set-initial-state 'vterm-mode 'insert))
-
-(after! org
-  (setq org-hide-emphasis-markers t
-        org-directory "~/org/"))
 
 (after! vterm
   (setq vterm-shell "fish"
         vterm-toggle-hide-method nil))
 
 (after! treemacs
-  (setq doom-themes-treemacs-enable-variable-pitch nil
-        treemacs-width 25))
-
-(custom-set-faces
- '(treemacs-root-face ((t (:height 1.0)))))
+  (setq treemacs-width 25))
 
 (add-hook! 'rainbow-mode-hook (hl-line-mode (if rainbow-mode -1 +1)))
 
@@ -89,7 +85,7 @@
   (delete-word (- arg)))
 
 (defun my/focus-new-client-frame ()
-       (select-frame-set-input-focus (selected-frame)))
+  (select-frame-set-input-focus (selected-frame)))
 
 (add-hook 'server-after-make-frame-hook #'my/focus-new-client-frame)
 
