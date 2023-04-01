@@ -5,5 +5,5 @@
 
 COLOR=$(xcolor)
 
-echo "$COLOR" | xclip -selection clipboard
+echo "$COLOR" | tr -d '\n' | xclip -selection clipboard
 notify-send "$COLOR"

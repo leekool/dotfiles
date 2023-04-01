@@ -42,6 +42,7 @@
       "k" #'kill-buffer-and-window
       "r R" #'replace-string
       "r r" #'replace-string-in-region
+      "r m" #'rainbow-mode
       "!" #'+default/diagnostics)
 
 (map! "C-c o" #'switch-to-minibuffer
