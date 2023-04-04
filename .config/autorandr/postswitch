@@ -1,1 +1,3 @@
+#!/bin/sh
+
 feh --bg-fill ~/.config/dwm/wallpaper/paint.jpg

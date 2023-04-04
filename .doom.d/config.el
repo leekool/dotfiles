@@ -39,6 +39,7 @@
 (server-start)
 
 (map! :leader
+      "TAB" #'evil-switch-to-windows-last-buffer
       "k" #'kill-buffer-and-window
       "r R" #'replace-string
       "r r" #'replace-string-in-region
@@ -125,3 +126,20 @@
          (slide . bottom)
          (slot . 0)))
     (vterm-toggle-cd)))
+
+(defun svelte-lsp ()
+  (when (and (stringp buffer-file-name)
+             (string-match "\\.svelte\\'" buffer-file-name))
+    (lsp (current-buffer))))
+
+(add-hook 'find-file-hook #'svelte-lsp)
+
+(defun my/web-mode-hook ()
+  (setq web-mode-indent-style 2
+        web-mode-markup-indent-offset 4
+        web-mode-code-indent-offset 2
+        web-mode-css-indent-offset 2
+        web-mode-script-padding 0
+        web-mode-style-padding 0))
+
+(add-hook 'web-mode-hook 'my/web-mode-hook)
