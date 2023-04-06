@@ -586,37 +586,39 @@ song_columns_list_format = "(2f)[5]{} (4f)[5]{n} (2f)[8]{} (25)[8]{t} (2f)[7]{} 
 ## are used there is a possibility that you'll be able to use only colors with
 ## transparent background.
 #
-#colors_enabled = yes
+colors_enabled = yes
 #
-#empty_tag_color = cyan
+# empty_tag_color = 14
 #
-#header_window_color = default
+header_window_color = 15
+statusbar_color = 15
 #
 #volume_color = default
 #
-#state_line_color = default
+state_line_color = default
 #
-#state_flags_color = default:b
+state_flags_color = 3
 #
-#main_window_color = yellow
+main_window_color = 5
 #
-#color1 = white
+color1 = "1_3"
 #
-#color2 = green
+color2 = "1_3"
 #
 #progressbar_color = black:b
 #
 #progressbar_elapsed_color = green:b
 #
-#statusbar_color = default
 #
 #statusbar_time_color = default:b
 #
-#player_state_color = default:b
+player_state_color = 1
 #
 #alternative_ui_separator_color = black:b
 #
 #window_border_color = green
 #
-#active_window_border = red
+active_window_border = red
 #
+
+# visualizer_color =  2, 7, 12, 8, 1, 9
