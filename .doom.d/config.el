@@ -40,6 +40,7 @@
 
 (map! :leader
       "TAB" #'evil-switch-to-windows-last-buffer
+      "b TAB" #'other-window
       "k" #'kill-buffer-and-window
       "r R" #'replace-string
       "r r" #'replace-string-in-region
@@ -60,6 +61,8 @@
       doom-themes-enable-italic t
       doom-font (font-spec :family "PragmataPro Mono" :size 19)
       doom-themes-treemacs-enable-variable-pitch nil
+      warning-minimum-level :error
+      native-comp-async-report-warnings-errors nil
       org-hide-emphasis-markers t
       org-directory "~/org/")
 
@@ -100,7 +103,7 @@
 (add-hook 'server-after-make-frame-hook #'my/focus-new-client-frame)
 
 (defun switch-to-minibuffer ()
-  "Switch to minibuffer window."
+  "Switch focus to minibuffer."
   (interactive)
   (if (active-minibuffer-window)
       (select-window (active-minibuffer-window))
