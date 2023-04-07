@@ -33,7 +33,8 @@ mpd_connection_timeout = 5
 ##
 mpd_music_dir = "/run/media/lee/9C33-6BBD/music/"
 
-execute_on_song_change="~/.config/ncmpcpp/ncmpcpp-ueberzug/ncmpcpp_cover_art.sh"
+# execute_on_song_change="~/.config/ncmpcpp/ncmpcpp-ueberzug/ncmpcpp_cover_art.sh"
+execute_on_song_change="bash ~/.config/ncmpcpp/cover.sh update"
 #
 #mpd_crossfade_time = 5
 #
