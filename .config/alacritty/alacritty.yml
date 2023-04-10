@@ -858,66 +858,66 @@ key_bindings:
   # Print all received window events.
   #print_events: false
 
-# colors:
-#   primary:
-#     background: '#282828'
-#     foreground: '#efefe7'
-
-#   normal:
-#     black:   '#665c54'
-#     red:     '#a2676b'
-#     green:   '#928796'
-#     yellow:  '#97a68a'
-#     blue:    '#a4b2a9'
-#     magenta: '#d3869b'
-#     cyan:    '#c2999c'
-#     white:   '#9e9f9f'
-
-#   bright:
-#     black:   '#928374'
-#     red:     '#a2676b'
-#     green:   '#a7b4a9'
-#     yellow:  '#efefe7'
-#     blue:    '#91a193'
-#     magenta: '#d3869b'
-#     cyan:    '#d0b3b5'
-#     white:   '#9e9f9f'
-
 colors:
-  # Default colors
   primary:
-    background: '#2c2b2a'
-    foreground: '#f9e7c4'
+    background: '#282828'
+    foreground: '#efefe7'
 
-    dim_foreground:    '#685E4A'
-    bright_foreground: '#1C1508'
-    dim_background:    '#202322'
-    bright_background: '#353433'
-
-  # Cursor colors
-  cursor:
-    text:   '#f9e7c4'
-    cursor: '#f9e7c4'
-
-  # Normal colors
   normal:
-    black:   '#282a2e'
-    blue:    '#81a2be'
-    cyan:    '#7daea3'
-    green:   '#8c9440'
-    magenta: '#85678f'
-    orange:  '#cc6953'
-    red:     '#a54242'
+    black:   '#665c54'
+    red:     '#a2676b'
+    green:   '#928796'
+    yellow:  '#97a68a'
+    blue:    '#a4b2a9'
+    magenta: '#d3869b'
+    cyan:    '#c2999c'
     white:   '#9e9f9f'
-    yellow:  '#de935f'
 
-  # Bright colors
   bright:
-    black:   '#373b41'
-    blue:    '#81a2be'
-    cyan:    '#8abeb7'
-    green:   '#b5bd68'
-    magenta: '#b294bb'
-    red:     '#cc6666'
+    black:   '#928374'
+    red:     '#a2676b'
+    green:   '#a7b4a9'
+    yellow:  '#efefe7'
+    blue:    '#91a193'
+    magenta: '#cc6666'
+    cyan:    '#d0b3b5'
     white:   '#c5c8c6'
-    yellow:  '#f0c674'
+
+# colors:
+#   # Default colors
+#   primary:
+#     background: '#2c2b2a'
+#     foreground: '#f9e7c4'
+
+#     dim_foreground:    '#685E4A'
+#     bright_foreground: '#1C1508'
+#     dim_background:    '#202322'
+#     bright_background: '#353433'
+
+#   # Cursor colors
+#   cursor:
+#     text:   '#f9e7c4'
+#     cursor: '#f9e7c4'
+
+#   # Normal colors
+#   normal:
+#     black:   '#282a2e'
+#     blue:    '#81a2be'
+#     cyan:    '#7daea3'
+#     green:   '#8c9440'
+#     magenta: '#85678f'
+#     orange:  '#cc6953'
+#     red:     '#a54242'
+#     white:   '#9e9f9f'
+#     yellow:  '#de935f'
+
+#   # Bright colors
+#   bright:
+#     black:   '#373b41'
+#     blue:    '#81a2be'
+#     cyan:    '#8abeb7'
+#     green:   '#b5bd68'
+#     magenta: '#b294bb'
+#     red:     '#cc6666'
+#     white:   '#c5c8c6'
+#     yellow:  '#f0c674'
