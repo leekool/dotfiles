@@ -1,10 +1,11 @@
 neww
 set -g status off
+set-option -g default-shell /bin/fish
 set -g pane-border-style fg=blue
 set -g pane-active-border-style fg=blue
 split-window -v
 select-pane -t 0
-resize-pane -t 0 -y 16
+resize-pane -t 0 -y 15
 split-window -h
 send-keys 'vis' C-m
 resize-pane -t 0 -x 38
