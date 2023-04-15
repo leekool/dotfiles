@@ -11,10 +11,22 @@ return require('packer').startup(function(use)
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-  use({ 
-	  'rose-pine/neovim', 
-	  as = 'rose-pine'
-  })
+  use {
+      "nvim-telescope/telescope-file-browser.nvim",
+      requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+  }
+
+  use {
+      'nvim-lualine/lualine.nvim',
+      requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
+
+  -- use({
+	 --  'rose-pine/neovim',
+	 --  as = 'rose-pine'
+  -- })
+
+  use { "rebelot/kanagawa.nvim" }
 
   use {
 	  'nvim-treesitter/nvim-treesitter',
@@ -28,7 +40,11 @@ return require('packer').startup(function(use)
   use('ThePrimeagen/harpoon')
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
+  use('xiyaowong/transparent.nvim')
+  use('rebelot/heirline.nvim')
+  use('nvim-lua/lsp-status.nvim')
 
+  -- LSP
   use {
 	  'VonHeikemen/lsp-zero.nvim',
 	  branch = 'v1.x',
@@ -50,6 +66,55 @@ return require('packer').startup(function(use)
 		  {'L3MON4D3/LuaSnip'},
 		  {'rafamadriz/friendly-snippets'},
 	  }
+  }
+
+  use {
+	  "folke/trouble.nvim",
+	  requires = "nvim-tree/nvim-web-devicons",
+	  config = function()
+		  require("trouble").setup {
+			  -- your configuration comes here
+			  -- or leave it empty to use the default settings
+			  -- refer to the configuration section below
+		  }
+	  end
+  }
+
+  use {
+      "folke/which-key.nvim",
+      config = function()
+          vim.o.timeout = true
+          vim.o.timeoutlen = 300
+          require("which-key").setup {
+              -- your configuration comes here
+              -- or leave it empty to use the default settings
+              -- refer to the configuration section below
+          }
+      end
+  }
+
+  use {
+      'numToStr/Comment.nvim',
+      config = function()
+          require('Comment').setup()
+      end
+  }
+
+  use {
+      "windwp/nvim-autopairs",
+      config = function() require("nvim-autopairs").setup {} 
+      end
+  }
+
+  use {
+      "windwp/nvim-ts-autotag",
+      config = function()
+          require'nvim-treesitter.configs'.setup {
+              autotag = {
+                  enable = true,
+              }
+          }
+      end
   }
 
 end)
