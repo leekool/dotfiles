@@ -118,10 +118,10 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: Pragmata Pro
+    family: Pragmata ProMono
 
     # The `style` can be specified to pick a specific face.
-    #style: Regular
+    style: Regular 
 
   # Bold font face
   #bold:
@@ -157,7 +157,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  #size: 11.0
+  size: 12.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -883,41 +883,76 @@ key_bindings:
 #     cyan:    '#d0b3b5'
 #     white:   '#c5c8c6'
 
+# colors:
+#   # Default colors
+#   primary:
+#     background: '#2c2b2a'
+#     foreground: '#f9e7c4'
+
+#     dim_foreground:    '#685E4A'
+#     bright_foreground: '#1C1508'
+#     dim_background:    '#202322'
+#     bright_background: '#353433'
+
+#   # Cursor colors
+#   cursor:
+#     text:   '#f9e7c4'
+#     cursor: '#f9e7c4'
+
+#   # Normal colors
+#   normal:
+#     black:   '#282a2e'
+#     blue:    '#81a2be'
+#     cyan:    '#7daea3'
+#     green:   '#8c9440'
+#     magenta: '#85678f'
+#     orange:  '#cc6953'
+#     red:     '#a54242'
+#     white:   '#9e9f9f'
+#     yellow:  '#de935f'
+
+#   # Bright colors
+#   bright:
+#     black:   '#373b41'
+#     blue:    '#81a2be'
+#     cyan:    '#8abeb7'
+#     green:   '#b5bd68'
+#     magenta: '#b294bb'
+#     red:     '#cc6666'
+#     white:   '#c5c8c6'
+#     yellow:  '#f0c674'
+
+# Kanagawa Alacritty Colors
 colors:
-  # Default colors
   primary:
-    background: '#2c2b2a'
-    foreground: '#f9e7c4'
+    # background: '#1f1f28'
+    background: '#202322'
+    foreground: '#dcd7ba'
 
-    dim_foreground:    '#685E4A'
-    bright_foreground: '#1C1508'
-    dim_background:    '#202322'
-    bright_background: '#353433'
-
-  # Cursor colors
-  cursor:
-    text:   '#f9e7c4'
-    cursor: '#f9e7c4'
-
-  # Normal colors
   normal:
-    black:   '#282a2e'
-    blue:    '#81a2be'
-    cyan:    '#7daea3'
-    green:   '#8c9440'
-    magenta: '#85678f'
-    orange:  '#cc6953'
-    red:     '#a54242'
-    white:   '#9e9f9f'
-    yellow:  '#de935f'
+    black:   '#090618'
+    red:     '#c34043'
+    green:   '#76946a'
+    yellow:  '#c0a36e'
+    blue:    '#7e9cd8'
+    magenta: '#957fb8'
+    cyan:    '#6a9589'
+    white:   '#c8c093'
 
-  # Bright colors
   bright:
-    black:   '#373b41'
-    blue:    '#81a2be'
-    cyan:    '#8abeb7'
-    green:   '#b5bd68'
-    magenta: '#b294bb'
-    red:     '#cc6666'
-    white:   '#c5c8c6'
-    yellow:  '#f0c674'
+    black:   '#727169'
+    red:     '#e82424'
+    green:   '#98bb6c'
+    yellow:  '#e6c384'
+    blue:    '#7fb4ca'
+    magenta: '#938aa9'
+    cyan:    '#7aa89f'
+    white:   '#dcd7ba'
+
+  selection:
+    background: '#2d4f67'
+    foreground: '#c8c093'
+
+  indexed_colors:
+    - { index: 16, color: '#ffa066' }
+    - { index: 17, color: '#ff5d62' }
