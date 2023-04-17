@@ -5,6 +5,8 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  use('kyazdani42/nvim-web-devicons')
+
   use {
 	  'nvim-telescope/telescope.nvim', tag = '0.1.1',
 	  -- or                            , branch = '0.1.x',
@@ -36,12 +38,13 @@ return require('packer').startup(function(use)
 	  end
   }
 
+  use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
+
   use('nvim-treesitter/playground')
   use('ThePrimeagen/harpoon')
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
   use('xiyaowong/transparent.nvim')
-  use('rebelot/heirline.nvim')
   use('nvim-lua/lsp-status.nvim')
 
   -- LSP
@@ -102,7 +105,7 @@ return require('packer').startup(function(use)
 
   use {
       "windwp/nvim-autopairs",
-      config = function() require("nvim-autopairs").setup {} 
+      config = function() require("nvim-autopairs").setup {}
       end
   }
 

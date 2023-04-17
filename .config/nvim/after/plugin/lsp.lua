@@ -1,7 +1,6 @@
 local lsp = require("lsp-zero")
 
 lsp.preset("recommended")
-
 lsp.ensure_installed({
   'tsserver',
   'rust_analyzer',
@@ -39,12 +38,19 @@ lsp.setup_nvim_cmp({
 lsp.set_preferences({
     suggest_lsp_servers = false,
     sign_icons = {
-        error = 'E',
-        warn = 'W',
-        hint = 'H',
-        info = 'I'
+        error = '✘',
+        warn = '▲',
+        hint = '⚑',
+        info = '»'
     }
 })
+
+-- lsp.set_sign_icons({
+--     error = '✘',
+--     warn = '▲',
+--     hint = '⚑',
+--     info = '»'
+-- })
 
 lsp.on_attach(function(client, bufnr)
   local opts = {buffer = bufnr, remap = false}

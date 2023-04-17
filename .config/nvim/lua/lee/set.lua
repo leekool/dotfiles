@@ -1,7 +1,9 @@
 -- vim.opt.guicursor = { 'a:block' }
 vim.o.cmdheight = 0
 
-vim.opt.nu = true
+vim.opt.signcolumn = "auto"
+vim.opt.number = true
+vim.opt.numberwidth = 1
 vim.opt.relativenumber = true
 
 vim.opt.tabstop = 4
