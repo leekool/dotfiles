@@ -19,7 +19,7 @@ vim.keymap.set('n', '<leader>ss',
 -- buffer movement
 vim.keymap.set({ 'n', 'v' }, '<leader><TAB>',
     function()
-        vim.cmd('bprevious')
+        vim.cmd('b#')
     end,
     { desc = 'previous buffer' })
 
