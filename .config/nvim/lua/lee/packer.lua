@@ -48,6 +48,7 @@ return require('packer').startup(function(use)
     use('tpope/vim-fugitive')
     use('xiyaowong/transparent.nvim')
     use('nvim-lua/lsp-status.nvim')
+    use('ggandor/leap.nvim')
 
     -- LSP
     use {
