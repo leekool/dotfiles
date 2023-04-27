@@ -41,6 +41,7 @@ return require('packer').startup(function(use)
 
     use { 'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons' }
 
+    use('tpope/vim-repeat')
     use('kyazdani42/nvim-web-devicons')
     use('nvim-treesitter/playground')
     use('ThePrimeagen/harpoon')

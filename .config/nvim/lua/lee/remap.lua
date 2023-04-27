@@ -1,5 +1,18 @@
 vim.g.mapleader = " "
 
+-- save/quit
+vim.keymap.set({ 'n', 'v' }, '<leader>fs',
+    function()
+        vim.cmd('w')
+    end,
+    { desc = 'save' })
+
+vim.keymap.set({ 'n', 'v' }, '<leader>fq',
+    function()
+        vim.cmd('q')
+    end,
+    { desc = 'quit' })
+
 -- telescope
 vim.keymap.set('n', '<leader>.',
     function()
