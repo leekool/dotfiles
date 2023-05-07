@@ -50,6 +50,7 @@ return require('packer').startup(function(use)
     use('xiyaowong/transparent.nvim')
     use('nvim-lua/lsp-status.nvim')
     use('ggandor/leap.nvim')
+    use('norcalli/nvim-colorizer.lua')
 
     -- LSP
     use {
