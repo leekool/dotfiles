@@ -41,7 +41,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
@@ -72,8 +72,11 @@ ENABLE_CORRECTION="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 	git
+    copybuffer
+    command-not-found
 	zsh-autosuggestions
     zsh-syntax-highlighting
+    zsh-interactive-cd
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -88,7 +91,8 @@ export PATH="$HOME/.config/ncmpcpp/ncmpcpp-ueberzug/:$PATH"
 export DISPLAY=:0
 # export EDITOR="emacsclient -t"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-export BROWSER="librewolf $1 >/dev/null 2>&1 & disown -a"
+# export BROWSER="librewolf $1 >/dev/null 2>&1 & disown -a"
+export BROWSER="librewolf"
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -102,7 +106,7 @@ export BROWSER="librewolf $1 >/dev/null 2>&1 & disown -a"
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
-alias kemacs="emacsclient -e '(kill-emacs)'"
+# alias kemacs="emacsclient -e '(kill-emacs)'"
 alias gfxcard="lspci -nnk | grep -A2 VGA"
 alias battery="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
 alias ff="librewolf > /dev/null 2>&1 &> /dev/null 2>&1 & disown"
@@ -118,8 +122,8 @@ alias sig="~/clone/scli/scli --save-history"
 alias ls="exa --long --no-user --git"
 alias exitwm="sudo systemctl restart ly.service"
 alias serve="ng serve -o --host $(ip addr | awk 'BEGIN { FS="[[:blank:]/]+" } /inet/ { print $3 }' | sed -n '3 p')"
-alias emacs="runemacs.sh"
-alias cdb="cd $(emacsclient -e '(file-name-directory (buffer-file-name (window-buffer)))' | tr -d '\"')"
+# alias emacs="runemacs.sh"
+# alias cdb="cd $(emacsclient -e '(file-name-directory (buffer-file-name (window-buffer)))' | tr -d '\"')"
 alias vim="nvim"
 
 eval "$(starship init zsh)"
