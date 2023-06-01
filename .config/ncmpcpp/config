@@ -7,7 +7,7 @@ mpd_port = 6600
 mpd_connection_timeout = 5
 mpd_music_dir = "/run/media/lee/9C33-6BBD/music/"
 
-execute_on_song_change="bash ~/.config/ncmpcpp/cover.sh update"
+execute_on_song_change="bash ~/.config/ncmpcpp/cover.sh update > /dev/null 2>&1"
 
 #mpd_crossfade_time = 5
 
