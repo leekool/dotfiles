@@ -6,13 +6,13 @@ FILENAME=$(date "+%d%b%y-%H:%M:%S").png
 
 case $1 in
     "window")  # screenshots focused window
-        scrot -u ~/Pictures/Screenshots/$FILENAME
+        scrot -u ~/clone/$FILENAME
         ;;
     "box")  # click and drag box
-        scrot -s ~/Pictures/Screenshots/$FILENAME
+        scrot -s ~/clone/$FILENAME
         inotifywait -e close_write --include ~/Pictures/Screenshots/$FILENAME
         ;;
 esac
 
-scp ~/Pictures/Screenshots/$FILENAME root@imre.al:/var/www/html/image/screenshot && rm ~/Pictures/Screenshots/$FILENAME
+scp ~/clone/$FILENAME root@imre.al:/var/www/html/image/screenshot && rm ~/clone/$FILENAME
 echo "https://imre.al/image/screenshot/$FILENAME" | xclip -selection clipboard
