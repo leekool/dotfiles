@@ -5,3 +5,4 @@
 .config/mutt/.mailsynclastrun
 .config/ncmpcpp/error.log
 .config/ncmpcpp/ncmpcpp-ueberzug
+.config/nvim/plugin/packer_compiled.lua
