@@ -93,6 +93,7 @@ export DISPLAY=:0
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 # export BROWSER="librewolf $1 >/dev/null 2>&1 & disown -a"
 export BROWSER="librewolf"
+export EDITOR="nvim"
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -126,5 +127,6 @@ alias serve="ng serve -o --host $(ip addr | awk 'BEGIN { FS="[[:blank:]/]+" } /i
 # alias cdb="cd $(emacsclient -e '(file-name-directory (buffer-file-name (window-buffer)))' | tr -d '\"')"
 alias vim="nvim"
 alias cat="bat"
+alias pdf="sioyek"
 
 eval "$(starship init zsh)"
