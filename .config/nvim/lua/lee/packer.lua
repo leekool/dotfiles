@@ -5,7 +5,7 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
-    use { 'frabjous/knap' }
+    use 'frabjous/knap'
 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
@@ -39,6 +39,11 @@ return require('packer').startup(function(use)
             local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
             ts_update()
         end
+    }
+
+    use {'nvim-orgmode/orgmode' , config = function()
+        require('orgmode').setup{}
+    end
     }
 
     use { 'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons' }
