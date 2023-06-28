@@ -17,7 +17,34 @@ require('nvim-treesitter.configs').setup {
 }
 
 require('orgmode').setup({
-    org_agenda_files = { '~/sync/org/*', '' },
+    win_split_mode = 'float',
+    org_agenda_files = {
+        '~/sync/org/*'
+    },
     org_default_notes_file = '~/sync/org/refile.org',
+    org_capture_templates = {
+        t = {
+            description = 'todo',
+            template = '* TODO %?\n %u',
+            target = '~/sync/org/todo.org'
+        },
+        n = {
+            description = 'note',
+            template = '\n*** %<%Y-%m-%d> %<%A>\n**** %U\n\n%?',
+            target = '~/sync/org/refile.org'
+        },
+        e = 'event',
+        er = {
+            description = 'recurring',
+            template = '** %?\n %T',
+            target = '~/sync/org/calendar.org',
+            headline = 'recurring'
+        },
+        eo = {
+            description = 'one-off',
+            template = '** %?\n %T',
+            target = '~/sync/org/calendar.org',
+            headline = 'one-off'
+        }
+    }
 })
-
