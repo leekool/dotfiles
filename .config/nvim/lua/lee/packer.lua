@@ -2,7 +2,6 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-    -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
     use 'frabjous/knap'
@@ -26,7 +25,6 @@ return require('packer').startup(function(use)
     use {
         'andymass/vim-matchup',
         setup = function()
-            -- set options here
             vim.g.matchup_matchparen_offscreen = { method = "popup" }
         end
     }
@@ -41,12 +39,24 @@ return require('packer').startup(function(use)
         end
     }
 
-    use {'nvim-orgmode/orgmode' , config = function()
-        require('orgmode').setup{}
+    use { 'nvim-orgmode/orgmode', config = function()
+        require('orgmode').setup {}
     end
     }
 
     use { 'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons' }
+
+    use {
+        'jinh0/eyeliner.nvim',
+        config = function()
+            require 'eyeliner'.setup {
+                highlight_on_key = true, -- show highlights only after keypress
+                dim = true    -- dim all other characters if set to true (recommended!)
+            }
+        end
+    }
+
+    use 'lewis6991/gitsigns.nvim'
 
     use('tpope/vim-repeat')
     use('tpope/vim-fugitive')
@@ -130,13 +140,13 @@ return require('packer').startup(function(use)
     }
 
     use {
-       "windwp/nvim-ts-autotag",
-       config = function()
-           require 'nvim-treesitter.configs'.setup {
-               autotag = {
-                   enable = true,
-               }
-           }
-       end
+        "windwp/nvim-ts-autotag",
+        config = function()
+            require 'nvim-treesitter.configs'.setup {
+                autotag = {
+                    enable = true,
+                }
+            }
+        end
     }
 end)
