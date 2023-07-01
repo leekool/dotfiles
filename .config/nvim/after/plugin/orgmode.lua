@@ -18,6 +18,9 @@ require('nvim-treesitter.configs').setup {
 
 require('orgmode').setup({
     win_split_mode = 'float',
+    org_todo_keywords = {
+        'TODO(t)', 'NEXT(n)', 'BLOCK(b)', '|', 'SKIP(s)', 'DONE(d)'
+    },
     org_agenda_files = {
         '~/sync/org/*'
     },
