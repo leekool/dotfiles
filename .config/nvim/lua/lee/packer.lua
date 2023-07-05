@@ -51,7 +51,7 @@ return require('packer').startup(function(use)
         config = function()
             require 'eyeliner'.setup {
                 highlight_on_key = true, -- show highlights only after keypress
-                dim = true    -- dim all other characters if set to true (recommended!)
+                dim = true               -- dim all other characters if set to true (recommended!)
             }
         end
     }
@@ -74,6 +74,11 @@ return require('packer').startup(function(use)
         config = function()
             require 'colorizer'.setup()
         end
+    }
+
+    use {
+        'nmac427/guess-indent.nvim',
+        config = function() require('guess-indent').setup {} end,
     }
 
     -- LSP
