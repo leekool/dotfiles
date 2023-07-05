@@ -26,22 +26,26 @@ vim.keymap.set({ 'n', 'v' }, '<leader>fq',
     end,
     { desc = 'quit' })
 
--- telescope
+-- TELESCOPE
+-- browse in file's directory
 vim.keymap.set('n', '<leader>.',
     function()
         vim.cmd('Telescope file_browser path=%:p:h select_buffer=true hidden=true')
     end,
     { desc = 'find file' })
 
+-- switch between open buffers
 vim.keymap.set('n', '<leader>,', require('telescope.builtin').buffers,
     { desc = 'switch buffer' })
 
+-- grep string
 vim.keymap.set('n', '<leader>ss',
     function()
         require('telescope.builtin').grep_string({ search = vim.fn.input('grep > ') })
     end,
     { desc = 'grep string' })
 
+-- live grep (requires ripgrep)
 vim.keymap.set('n', '<leader>sl',
     function()
         require('telescope.builtin').live_grep()
@@ -69,6 +73,33 @@ vim.keymap.set('n', '<leader>fi',
     end,
 
     { desc = 'find implementation' })
+
+-- git status
+vim.keymap.set('n', '<leader>Gs',
+    function()
+        require('telescope.builtin').git_status()
+    end,
+    { desc = 'git status' })
+
+-- git commits
+vim.keymap.set('n', '<leader>Gc',
+    function()
+        require('telescope.builtin').git_commits()
+    end,
+    { desc = 'git commits' })
+
+-- git branches
+vim.keymap.set('n', '<leader>Gb',
+    function()
+        require('telescope.builtin').git_branches()
+    end,
+    { desc = 'git branches' })
+
+vim.keymap.set('n', '<leader>of',
+    function()
+        vim.cmd('Telescope file_browser path=~/sync/org select_buffer=true hidden=true')
+    end,
+    { desc = 'org folder (telescope)' })
 
 -- buffer movement
 vim.keymap.set({ 'n', 'v' }, '<leader><TAB>',
