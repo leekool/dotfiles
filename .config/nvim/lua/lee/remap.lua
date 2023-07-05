@@ -12,13 +12,14 @@ vim.keymap.set({ 'n', 'v', 'i' },'<F7>', function() require("knap").toggle_autop
 -- F8 invokes a SyncTeX forward search, or similar, where appropriate
 vim.keymap.set({ 'n', 'v', 'i' },'<F8>', function() require("knap").forward_jump() end)
 
--- save/quit
+-- save
 vim.keymap.set({ 'n', 'v' }, '<leader>fs',
     function()
         vim.cmd('w')
     end,
     { desc = 'save' })
 
+-- quit
 vim.keymap.set({ 'n', 'v' }, '<leader>fq',
     function()
         vim.cmd('q')
@@ -40,6 +41,34 @@ vim.keymap.set('n', '<leader>ss',
         require('telescope.builtin').grep_string({ search = vim.fn.input('grep > ') })
     end,
     { desc = 'grep string' })
+
+vim.keymap.set('n', '<leader>sl',
+    function()
+        require('telescope.builtin').live_grep()
+    end,
+    { desc = 'live grep' })
+
+-- find references
+vim.keymap.set('n', '<leader>fr',
+    function()
+        require('telescope.builtin').lsp_references()
+    end,
+    { desc = 'find references' })
+
+-- find definition
+vim.keymap.set('n', '<leader>fd',
+    function()
+        require('telescope.builtin').lsp_definitions()
+    end,
+    { desc = 'find definition' })
+
+-- find definition
+vim.keymap.set('n', '<leader>fi',
+    function()
+        require('telescope.builtin').lsp_implementations()
+    end,
+
+    { desc = 'find implementation' })
 
 -- buffer movement
 vim.keymap.set({ 'n', 'v' }, '<leader><TAB>',
@@ -95,16 +124,13 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- greatest remap ever
+-- greatest remaps ever (copy/paste from clipboard)
 vim.keymap.set("x", "<leader>p", [["_dP]])
-
--- next greatest remap ever : asbjornHaland
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
--- This is going to get me cancelled
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
 vim.keymap.set("n", "Q", "<nop>")
