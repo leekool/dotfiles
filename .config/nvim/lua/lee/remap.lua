@@ -1,16 +1,14 @@
 vim.g.mapleader = " "
 
--- F5 processes the document once, and refreshes the view
-vim.keymap.set({ 'n', 'v', 'i' },'<F5>', function() require("knap").process_once() end)
-
--- F6 closes the viewer application, and allows settings to be reset
-vim.keymap.set({ 'n', 'v', 'i' },'<F6>', function() require("knap").close_viewer() end)
-
--- F7 toggles the auto-processing on and off
-vim.keymap.set({ 'n', 'v', 'i' },'<F7>', function() require("knap").toggle_autopreviewing() end)
-
--- F8 invokes a SyncTeX forward search, or similar, where appropriate
-vim.keymap.set({ 'n', 'v', 'i' },'<F8>', function() require("knap").forward_jump() end)
+-- -- latex
+-- -- F5 processes the document once, and refreshes the view
+-- vim.keymap.set({ 'n', 'v', 'i' },'<F5>', function() require("knap").process_once() end)
+-- -- F6 closes the viewer application, and allows settings to be reset
+-- vim.keymap.set({ 'n', 'v', 'i' },'<F6>', function() require("knap").close_viewer() end)
+-- -- F7 toggles the auto-processing on and off
+-- vim.keymap.set({ 'n', 'v', 'i' },'<F7>', function() require("knap").toggle_autopreviewing() end)
+-- -- F8 invokes a SyncTeX forward search, or similar, where appropriate
+-- vim.keymap.set({ 'n', 'v', 'i' },'<F8>', function() require("knap").forward_jump() end)
 
 -- save
 vim.keymap.set({ 'n', 'v' }, '<leader>fs',
@@ -32,7 +30,7 @@ vim.keymap.set('n', '<leader>.',
     function()
         vim.cmd('Telescope file_browser path=%:p:h select_buffer=true hidden=true')
     end,
-    { desc = 'find file' })
+    { desc = 'cd' })
 
 -- switch between open buffers
 vim.keymap.set('n', '<leader>,', require('telescope.builtin').buffers,
@@ -108,6 +106,13 @@ vim.keymap.set({ 'n', 'v' }, '<leader><TAB>',
     end,
     { desc = 'previous buffer' })
 
+-- undotree toggle
+vim.keymap.set('n', '<leader>u',
+    function()
+        vim.cmd('UndotreeToggle')
+    end,
+    { desc = 'undotree toggle' })
+
 -- ctrl + up/down -> next empty line
 vim.keymap.set({ 'n', 'v' }, '<C-up>', '<S-{>')
 vim.keymap.set({ 'n', 'v' }, '<C-down>', '<S-}>')
@@ -137,13 +142,13 @@ vim.keymap.set('n', '<leader><leader>',
     end,
     { desc = ':so' })
 
--- trouble (diagnostics)
+-- trouble (diagnostics) 
 vim.keymap.set('n', '<leader>!', '<cmd>TroubleToggle document_diagnostics<cr>',
     { silent = true, noremap = true, desc = 'diagnostics' }
 )
 
 -- format
-vim.keymap.set("n", "<leader>=", vim.lsp.buf.format)
+vim.keymap.set("n", "<leader>=", vim.lsp.buf.format, { desc = 'format buffer' })
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
