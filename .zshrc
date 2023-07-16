@@ -130,6 +130,7 @@ alias serve="ng serve -o --host $(ip addr | awk 'BEGIN { FS="[[:blank:]/]+" } /i
 # alias emacs="runemacs.sh"
 # alias cdb="cd $(emacsclient -e '(file-name-directory (buffer-file-name (window-buffer)))' | tr -d '\"')"
 alias vim="nvim"
+alias v="nvim"
 alias cat="bat"
 alias pdf="sioyek"
 
