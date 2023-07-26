@@ -14,5 +14,5 @@ case $1 in
         ;;
 esac
 
-scp ~/clone/$FILENAME root@imre.al:/var/www/html/image/screenshot && rm ~/clone/$FILENAME
+scp ~/clone/$FILENAME root@imre.al:/home/lee/imre.al/imreal/image/screenshot && rm ~/clone/$FILENAME
 echo "https://imre.al/image/screenshot/$FILENAME" | xclip -selection clipboard
