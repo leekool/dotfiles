@@ -6,6 +6,9 @@ return require('packer').startup(function(use)
 
     use 'frabjous/knap'
 
+    use 'ray-x/go.nvim'
+    use 'ray-x/guihua.lua'
+
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
         -- or                            , branch = '0.1.x',
