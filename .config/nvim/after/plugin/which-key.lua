@@ -5,7 +5,7 @@ wk.register({
         name = "+git",
     },
     s = {
-        name = "+search",
+        name = "+search/scratch",
     },
     f = {
         name = "+file/find",

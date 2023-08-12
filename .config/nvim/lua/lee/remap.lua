@@ -64,7 +64,7 @@ vim.keymap.set('n', '<leader>fd',
     end,
     { desc = 'find definition' })
 
--- find definition
+-- find implementation
 vim.keymap.set('n', '<leader>fi',
     function()
         require('telescope.builtin').lsp_implementations()
@@ -93,6 +93,7 @@ vim.keymap.set('n', '<leader>Gb',
     end,
     { desc = 'git branches' })
 
+-- org folder
 vim.keymap.set('n', '<leader>of',
     function()
         vim.cmd('Telescope file_browser path=~/sync/org select_buffer=true hidden=true')
@@ -112,6 +113,19 @@ vim.keymap.set('n', '<leader>u',
         vim.cmd('UndotreeToggle')
     end,
     { desc = 'undotree toggle' })
+
+-- scratch
+vim.keymap.set('n', '<leader>sb',
+    function()
+        vim.cmd('Telescope scratch')
+    end,
+    { desc = 'new scratch buffer' })
+
+vim.keymap.set('n', '<leader>se',
+    function()
+        vim.cmd('ScratchEval')
+    end,
+    { desc = 'eval scratch buffer' })
 
 -- ctrl + up/down -> next empty line
 vim.keymap.set({ 'n', 'v' }, '<C-up>', '<S-{>')
