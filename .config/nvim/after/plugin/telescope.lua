@@ -1,21 +1,28 @@
 local fb_actions = require "telescope".extensions.file_browser.actions
 
-require('telescope').setup{
+require('telescope').setup {
   defaults = {
     -- Default configuration for telescope goes here:
     -- config_key = value,
     mappings = {
       n = {
-          ['<C-d>'] = require('telescope.actions').delete_buffer
-      }, -- n
+        ['<C-d>'] = require('telescope.actions').delete_buffer,
+        ['<S-d>'] = fb_actions.remove,
+        ['<C-r>'] = fb_actions.rename,
+        ['<C-n>'] = fb_actions.create,
+        ['<C-m>'] = fb_actions.move,
+      },
       i = {
         ["<C-h>"] = "which_key",
         ['<C-d>'] = require('telescope.actions').delete_buffer,
-        ['<C-n>'] = fb_actions.create
+        ['<S-d>'] = fb_actions.remove,
+        ['<C-r>'] = fb_actions.rename,
+        ['<C-n>'] = fb_actions.create,
+        ['<C-m>'] = fb_actions.move,
       } -- i
-    } -- mappings
-  }, -- defaults
-...
+    }   -- mappings
+  },    -- defaults
+  ...
 }
 
 -- local builtin = require('telescope.builtin')
