@@ -2,15 +2,13 @@ local fb_actions = require "telescope".extensions.file_browser.actions
 
 require('telescope').setup {
   defaults = {
-    -- Default configuration for telescope goes here:
-    -- config_key = value,
     mappings = {
       n = {
         ['<C-d>'] = require('telescope.actions').delete_buffer,
         ['<S-d>'] = fb_actions.remove,
         ['<C-r>'] = fb_actions.rename,
         ['<C-n>'] = fb_actions.create,
-        ['<C-m>'] = fb_actions.move,
+        -- ['<C-m>'] = fb_actions.move,
       },
       i = {
         ["<C-h>"] = "which_key",
@@ -18,17 +16,9 @@ require('telescope').setup {
         ['<S-d>'] = fb_actions.remove,
         ['<C-r>'] = fb_actions.rename,
         ['<C-n>'] = fb_actions.create,
-        ['<C-m>'] = fb_actions.move,
-      } -- i
-    }   -- mappings
-  },    -- defaults
+        -- ['<C-m>'] = fb_actions.move,
+      }
+    }
+  },
   ...
 }
-
--- local builtin = require('telescope.builtin')
-
--- vim.keymap.set('n', '<leader>,', builtin.buffers, {})
--- vim.keymap.set('n', '<C-p>', builtin.git_files, {})
--- vim.keymap.set('n', '<leader>ps', function()
--- 	builtin.grep_string({ search = vim.fn.input("Grep > ") });
--- end)
