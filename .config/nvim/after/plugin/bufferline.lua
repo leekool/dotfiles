@@ -27,5 +27,5 @@ require('bufferline').setup({
         separator = {
             fg = '#363646',
         },
-  }
+    }
 })
