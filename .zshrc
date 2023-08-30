@@ -17,6 +17,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.config/dwm/dwmblocks/scripts:$PATH"
 export PATH="$HOME/.config/ncmpcpp/ncmpcpp-ueberzug/:$PATH"
 export PATH="$HOME/go/bin:$PATH"
+export GOPATH="$HOME/clone/go_projects/"
 export DISPLAY=:0
 # export EDITOR="emacsclient -t"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
