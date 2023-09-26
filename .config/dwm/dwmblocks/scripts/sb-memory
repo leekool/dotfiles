@@ -1,0 +1,13 @@
+#!/bin/sh
+
+case $BLOCK_BUTTON in
+	1) notify-send "Memory hogs" "$(ps axch -o cmd:15,%mem --sort=-%mem | head)" ;;
+	2) setsid -f "$TERMINAL" -e htop ;;
+	3) notify-send "Memory module" "\- Shows memory used percentage.
+- Click to show memory hogs.
+- Middle click to open htop." ;;
+	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac
+
+# echo "[RAM: $(free -m | awk -v CONVFMT='%.2f' 'NR==2{print substr($3*100/$2, 1, length ($2) - 1)"%"}')]"
+echo " $(free -m | awk -v CONVFMT='%.2f' 'NR==2{print substr($3*100/$2, 1, length ($2) - 1)"%"}')"
