@@ -92,6 +92,13 @@ vim.keymap.set('n', '<leader>Gb',
     end,
     { desc = 'git branches' })
 
+-- git messenger (commit inline)
+vim.keymap.set('n', '<leader>Gm',
+    function()
+        vim.cmd('GitMessenger')
+    end,
+    { desc = 'git messenger (commit inline)' })
+
 -- org folder
 vim.keymap.set('n', '<leader>of',
     function()

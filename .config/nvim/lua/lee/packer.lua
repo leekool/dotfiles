@@ -6,6 +6,8 @@ return require('packer').startup(function(use)
 
     use 'frabjous/knap'
 
+    use 'rhysd/git-messenger.vim'
+
     use 'ray-x/go.nvim'
     use 'ray-x/guihua.lua'
 
