@@ -1,4 +1,5 @@
 -- vim.opt.guicursor = { 'a:block' }
+vim.cmd('language en_AU.utf8')
 vim.o.cmdheight = 0
 
 vim.opt.signcolumn = "auto"
