@@ -56,7 +56,8 @@
       user-mail-address "lee@imre.al"
       confirm-kill-emacs nil
       display-line-numbers-type t
-      doom-theme 'kanagawa
+      ;; doom-theme 'kanagawa
+      doom-theme 'doom-tomorrow-night
       doom-themes-enable-bold t
       doom-themes-enable-italic t
       doom-font (font-spec :family "PragmataPro Mono" :size 16)
