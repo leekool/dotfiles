@@ -21,7 +21,6 @@ export GOPATH="$HOME/clone/go_projects/"
 export DISPLAY=:0
 # export EDITOR="emacsclient -t"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-# export BROWSER="librewolf $1 >/dev/null 2>&1 & disown -a"
 export BROWSER="librewolf"
 export EDITOR="nvim"
 

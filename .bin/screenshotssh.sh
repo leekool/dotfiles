@@ -9,7 +9,7 @@ case $1 in
         scrot -u ~/clone/$FILENAME
         ;;
     "box")  # click and drag box
-        scrot -s ~/clone/$FILENAME
+        scrot -s --freeze ~/clone/$FILENAME
         inotifywait -e close_write --include ~/Pictures/Screenshots/$FILENAME
         ;;
 esac
