@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# takes a screenshot, uploads to imre.al, copies URL to clipboard
+# takes a screenshot, copies to imre.al, copies URL to clipboard
 
 FILENAME=$(date "+%d%b%y-%H:%M:%S").png
 
