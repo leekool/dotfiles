@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# Loop through each mp4 file in the current directory
+# loop through each m4a file in the current directory
 for file in *.m4a; do
-  # Get the base filename without the extension
+  # get the base filename without the extension
   filename=$(basename -- "$file")
   filename="${filename%.*}"
 
-  # Convert mp4 to flac using ffmpeg
+  # convert m4a to flac using ffmpeg
   ffmpeg -i "$file" "${filename}.flac"
 done
 
