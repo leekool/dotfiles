@@ -4,17 +4,20 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
+    use {
+        'folke/noice.nvim',
+        requires = { 'rcarriga/nvim-notify', 'MunifTanjim/nui.nvim' }
+    }
+
     use 'frabjous/knap'
-
     use 'rhysd/git-messenger.vim'
-
     use 'ray-x/go.nvim'
     use 'ray-x/guihua.lua'
 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.x',
         -- or                            , branch = '0.1.x',
-        requires = { { 'nvim-lua/plenary.nvim' } }
+        requires = { 'nvim-lua/plenary.nvim' }
     }
 
     use {
