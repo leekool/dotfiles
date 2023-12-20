@@ -4,9 +4,18 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
+    use { "catppuccin/nvim", as = "catppuccin" }
+
     use {
         'folke/noice.nvim',
         requires = { 'rcarriga/nvim-notify', 'MunifTanjim/nui.nvim' }
+    }
+
+    use { 'rcarriga/nvim-notify', config = function()
+        require('notify').setup({
+            background_colour = '#000000'
+        })
+        end
     }
 
     use 'frabjous/knap'

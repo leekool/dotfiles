@@ -8,8 +8,12 @@
 #
 # All imports must either be absolute paths starting with `/`, or paths relative
 # to the user's home directory starting with `~/`.
-#import:
-#  - /path/to/alacritty.yml
+import:
+  # uncomment the flavour you want below:
+  - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
+  # - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml
+  # - ~/.config/alacritty/catppuccin/catppuccin-frappe.yml
+  # - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
 
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
@@ -68,7 +72,7 @@ window:
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
   # opacity: 0.78
-  opacity: 0.97
+  opacity: 0.99
 
   # Startup Mode (changes require restart)
   #
@@ -924,36 +928,36 @@ key_bindings:
 #     yellow:  '#f0c674'
 
 # Kanagawa Alacritty Colors
-colors:
-  primary:
-    # background: '#1f1f28'
-    background: '#202322'
-    foreground: '#dcd7ba'
-
-  normal:
-    black:   '#090618'
-    red:     '#c34043'
-    green:   '#76946a'
-    yellow:  '#c0a36e'
-    blue:    '#7e9cd8'
-    magenta: '#957fb8'
-    cyan:    '#6a9589'
-    white:   '#c8c093'
-
-  bright:
-    black:   '#727169'
-    red:     '#e82424'
-    green:   '#98bb6c'
-    yellow:  '#e6c384'
-    blue:    '#7fb4ca'
-    magenta: '#938aa9'
-    cyan:    '#7aa89f'
-    white:   '#dcd7ba'
-
-  selection:
-    background: '#2d4f67'
-    foreground: '#c8c093'
-
-  indexed_colors:
-    - { index: 16, color: '#ffa066' }
-    - { index: 17, color: '#ff5d62' }
+# colors:
+#   primary:
+#     # background: '#1f1f28'
+#     background: '#202322'
+#     foreground: '#dcd7ba'
+#
+#   normal:
+#     black:   '#090618'
+#     red:     '#c34043'
+#     green:   '#76946a'
+#     yellow:  '#c0a36e'
+#     blue:    '#7e9cd8'
+#     magenta: '#957fb8'
+#     cyan:    '#6a9589'
+#     white:   '#c8c093'
+#
+#   bright:
+#     black:   '#727169'
+#     red:     '#e82424'
+#     green:   '#98bb6c'
+#     yellow:  '#e6c384'
+#     blue:    '#7fb4ca'
+#     magenta: '#938aa9'
+#     cyan:    '#7aa89f'
+#     white:   '#dcd7ba'
+#
+#   selection:
+#     background: '#2d4f67'
+#     foreground: '#c8c093'
+#
+#   indexed_colors:
+#     - { index: 16, color: '#ffa066' }
+#     - { index: 17, color: '#ff5d62' }
