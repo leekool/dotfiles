@@ -140,7 +140,8 @@ vim.keymap.set('i', '<C-up>', '<esc><S-{>i')
 vim.keymap.set('i', '<C-down>', '<esc><S-}>i')
 
 -- ctrl + backspace/delete whole word
-vim.keymap.set('i', '<M-BS>', '<C-W>')
+-- vim.keymap.set('i', '<M-BS>', '<C-W>') -- linux <M-BS>
+vim.keymap.set('i', '<C-H>', '<C-W>') -- windows <C-H>
 vim.keymap.set('i', '<C-Del>', 'X<Esc>lbce')
 
 -- alt + up/down swap lines
