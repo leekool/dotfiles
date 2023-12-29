@@ -44,8 +44,8 @@ typedef struct {
 } Sp;
 
 const char *spumpv[] = {"umpv", NULL };
-const char *spmusic[] = {"alacritty", "-c", "music", "-e", "music", NULL };
-const char *spterm[] = {"alacritty", "--class", "spterm", "-o", "window.dimensions.columns=120", "-o", "window.dimensions.lines=34", NULL };
+const char *spmusic[] = {"wezterm", "-c", "music", "-e", "music", NULL };
+const char *spterm[] = {"wezterm", "--class", "spterm", "-o", "window.dimensions.columns=120", "-o", "window.dimensions.lines=34", NULL };
 
 static Sp scratchpads[] = {
 	/* name          cmd  */
@@ -61,7 +61,7 @@ static const Rule rules[] = {
 	 */
 	/* class | instance | title | tags mask | isfloating | isterminal | noswallow | monitor | scratchkey */
 	{ "Gimp",     NULL,   NULL,           0, 1, 0,  0, -1, },
-	{ NULL,       "alacritty",   NULL,    0, 0, 1, -1, -1, },
+	{ NULL,       "wezterm",   NULL,    0, 0, 1, -1, -1, },
 	{ NULL,       NULL,   "Event Tester", 0, 1, 0,  1, -1, },
 	{ NULL,       NULL,   "Media viewer", 0, 1, 0,  0, -1, },
 	{ NULL,       NULL,   "floating",     0, 1, 1,  0, -1, },
@@ -93,7 +93,7 @@ static const Layout layouts[] = {
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
-#define TERMINAL "alacritty"
+#define TERMINAL "wezterm"
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 #define TSHCMD(cmd) SHCMD(TERMINAL " " cmd)
@@ -103,7 +103,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", normbgcolor, "-nf", selfgcolor, "-sb", selfgcolor, "-sf", normbgcolor, NULL };
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termcmd[]  = { "wezterm", NULL };
 
 /*
  * Xresources preferences to load at startup
