@@ -19,6 +19,7 @@ export PATH="$HOME/.config/ncmpcpp/ncmpcpp-ueberzug/:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 export GOPATH="$HOME/clone/go_projects/"
 export DISPLAY=:0
+export TERM="wezterm"
 # export EDITOR="emacsclient -t"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 export BROWSER="librewolf"

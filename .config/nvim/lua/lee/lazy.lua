@@ -34,7 +34,7 @@ require("lazy").setup({
     -- autocompletion
     { "hrsh7th/cmp-nvim-lsp" },
 
-    { 
+    {
         "hrsh7th/nvim-cmp",
         dependencies = {
             { "neovim/nvim-lspconfig" },
@@ -57,29 +57,29 @@ require("lazy").setup({
     "folke/which-key.nvim",
     "folke/trouble.nvim",
 
-    { 
-        "numToStr/Comment.nvim", 
-        config = 
-            function() 
-	            require("Comment").setup() 
+    {
+        "numToStr/Comment.nvim",
+        config =
+            function()
+	            require("Comment").setup()
     	    end,
     },
 
-    { 
+    {
         "windwp/nvim-autopairs",
         config =
-            function() 
-	            require("nvim-autopairs").setup {} 
+            function()
+	            require("nvim-autopairs").setup {}
     	    end,
     },
 
-    { 
+    {
         "windwp/nvim-ts-autotag",
         config =
-            function() 
+            function()
 	            require "nvim-treesitter.configs".setup {
                     autotag = { enable = true, }
-                } 
+                }
     	    end,
     },
 
@@ -88,7 +88,7 @@ require("lazy").setup({
 
     { "catppuccin/nvim", name = "catppuccin" },
 
-    { 
+    {
         "folke/noice.nvim",
         dependencies = {
             { "rcarriga/nvim-notify" },
@@ -96,7 +96,7 @@ require("lazy").setup({
 	    },
     },
 
-    { 
+    {
         "andymass/vim-matchup",
         config =
             function()
@@ -104,7 +104,7 @@ require("lazy").setup({
             end,
     },
 
-    { 
+    {
         "jinh0/eyeliner.nvim",
         config =
             function()
@@ -120,12 +120,16 @@ require("lazy").setup({
         config = function() require("guess-indent").setup {} end,
     },
 
-    { 
+    {
         "norcalli/nvim-colorizer.lua",
-        config = function() require("colorizer").setup() end,
+        config =
+            function()
+                vim.opt.termguicolors = true
+                require("colorizer").setup()
+            end,
     },
 
-    { 
+    {
         "n-shift/scratch.nvim",
         config =
             function()

@@ -1,4 +1,6 @@
 -- vim.opt.guicursor = { 'a:block' }
+vim.opt.termguicolors = true
+
 vim.cmd('language en_AU.utf8')
 vim.o.cmdheight = 0
 
@@ -23,8 +25,6 @@ vim.opt.undofile = true
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
-
-vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"

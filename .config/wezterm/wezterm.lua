@@ -23,6 +23,7 @@ c.colors = {
     },
 }
 
+c.hide_tab_bar_if_only_one_tab = true
 c.use_fancy_tab_bar = false
 
 local SOLID_LEFT_ARROW = wezterm.nerdfonts.pl_right_hard_divider -- <
@@ -34,8 +35,7 @@ local function tab_title(tab_info)
     if title and #title > 0 then
         return title
     end
-    -- Otherwise, use the title from the active pane
-    -- in that tab
+    -- otherwise, use the title from the active pane in that tab
     return tab_info.active_pane.title
 end
 
@@ -62,7 +62,7 @@ wezterm.on(
         local title = tab_title(tab)
 
         -- ensure that the titles fit in the available space,
-        -- and that we have room for the edges.
+        -- and that we have room for the edges
         title = wezterm.truncate_right(title, max_width - 2)
 
         return {
