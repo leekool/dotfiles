@@ -61,8 +61,8 @@ require("lazy").setup({
         "numToStr/Comment.nvim",
         config =
             function()
-	            require("Comment").setup()
-    	    end,
+                require("Comment").setup()
+            end,
     },
 
     { "windwp/nvim-autopairs" },
@@ -71,23 +71,23 @@ require("lazy").setup({
         "windwp/nvim-ts-autotag",
         config =
             function()
-	            require "nvim-treesitter.configs".setup {
+                require "nvim-treesitter.configs".setup {
                     autotag = { enable = true, }
                 }
-    	    end,
+            end,
     },
 
     "nvim-telescope/telescope.nvim",
     "nvim-telescope/telescope-file-browser.nvim",
 
-    { "catppuccin/nvim", name = "catppuccin" },
+    { "catppuccin/nvim",      name = "catppuccin" },
 
     {
         "folke/noice.nvim",
         dependencies = {
             { "rcarriga/nvim-notify" },
             { "MunifTanjim/nui.nvim" },
-	    },
+        },
     },
 
     {
@@ -104,7 +104,7 @@ require("lazy").setup({
             function()
                 require "eyeliner".setup {
                     highlight_on_key = true, -- show highlights only after keypress
-                    dim = true, -- dim all other characters if true
+                    dim = true,              -- dim all other characters if true
                 }
             end,
     },
@@ -150,4 +150,12 @@ require("lazy").setup({
     "tpope/vim-fugitive",
     "xiyaowong/transparent.nvim",
     "ggandor/leap.nvim",
+    "Eandrju/cellular-automaton.nvim",
+
+    {
+        "epwalsh/obsidian.nvim",
+        version = "*",
+        lazy = false,
+        ft = "markdown"
+    },
 })

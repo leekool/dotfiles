@@ -14,6 +14,6 @@ wk.register({
         name = "+file/find",
     },
     o = {
-        name = "+org",
+        name = "+obsidian",
     },
 }, { prefix = "<leader>" })
