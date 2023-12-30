@@ -137,13 +137,16 @@ require("lazy").setup({
             end,
     },
 
+    {
+        "nvim-lualine/lualine.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" }
+    },
+
     "frabjous/knap",
     "rhysd/git-messenger.vim",
     "ray-x/go.nvim",
     "ray-x/guihua.lua",
     "nvim-lua/plenary.nvim",
-    "nvim-lualine/lualine.nvim",
-    "nvim-tree/nvim-web-devicons",
     "akinsho/bufferline.nvim",
     "lewis6991/gitsigns.nvim",
     "tpope/vim-repeat",
