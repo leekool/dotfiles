@@ -79,10 +79,12 @@ wezterm.on(
     end
 )
 
+c.window_close_confirmation = 'NeverPrompt'
+
 c.font = wezterm.font('JetBrains Mono', { weight = 'Medium' })
 c.font_size = 11.0
 
-c.window_padding = { left = 9, right = 9, top = 4, bottom = 0 }
+c.window_padding = { left = 9, right = 9, top = 8, bottom = 0 }
 c.window_background_opacity = 0.975
 
 return c
