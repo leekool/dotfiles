@@ -129,7 +129,11 @@ local function load_cmp_and_luasnip()
                 },
             },
         },
-        completion = { keyword_length = 2 },
+        -- completion = { keyword_length = 2 },
+        completion = {
+            keyword_length = 2,
+            completeopt = 'menu,menuone,noinsert'
+        },
     }
 
     -- Set configuration for specific filetype.
@@ -141,7 +145,6 @@ local function load_cmp_and_luasnip()
         }),
     })
     require('cmp_git').setup()
-
     -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
     cmp.setup.cmdline('/', {
         mapping = cmp.mapping.preset.cmdline {

@@ -80,6 +80,7 @@ wezterm.on(
 )
 
 c.window_close_confirmation = 'NeverPrompt'
+c.warn_about_missing_glyphs = false
 
 c.font = wezterm.font('JetBrains Mono', { weight = 'Medium' })
 c.font_size = 11.0
