@@ -29,7 +29,7 @@ require("lazy").setup({
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
 
-    { "onsails/lspkind-nvim" },
+    { "onsails/lspkind.nvim" },
 
     -- autocompletion
     { "hrsh7th/cmp-nvim-lsp" },
