@@ -1,5 +1,0 @@
-* dwm config
-
------
-
-* [[./screenshot.png]]
