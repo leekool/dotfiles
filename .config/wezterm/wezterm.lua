@@ -88,4 +88,12 @@ c.font_size = 11.0
 c.window_padding = { left = 9, right = 9, top = 8, bottom = 0 }
 c.window_background_opacity = 0.975
 
+c.keys = {
+    {
+        key = 'Backspace',
+        mods = 'CTRL',
+        action = wezterm.action.SendKey { key = 'w', mods = 'CTRL' }
+    }
+}
+
 return c

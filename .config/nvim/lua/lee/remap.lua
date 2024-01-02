@@ -2,13 +2,13 @@ vim.g.mapleader = " "
 
 -- latex
 -- F5 processes the document once, and refreshes the view
-vim.keymap.set({ 'n', 'v', 'i' },'<F5>', function() require("knap").process_once() end)
+vim.keymap.set({ 'n', 'v', 'i' }, '<F5>', function() require("knap").process_once() end)
 -- F6 closes the viewer application, and allows settings to be reset
-vim.keymap.set({ 'n', 'v', 'i' },'<F6>', function() require("knap").close_viewer() end)
+vim.keymap.set({ 'n', 'v', 'i' }, '<F6>', function() require("knap").close_viewer() end)
 -- F7 toggles the auto-processing on and off
-vim.keymap.set({ 'n', 'v', 'i' },'<F7>', function() require("knap").toggle_autopreviewing() end)
+vim.keymap.set({ 'n', 'v', 'i' }, '<F7>', function() require("knap").toggle_autopreviewing() end)
 -- F8 invokes a SyncTeX forward search, or similar, where appropriate
-vim.keymap.set({ 'n', 'v', 'i' },'<F8>', function() require("knap").forward_jump() end)
+vim.keymap.set({ 'n', 'v', 'i' }, '<F8>', function() require("knap").forward_jump() end)
 
 -- save
 vim.keymap.set({ 'n', 'v' }, '<leader>fs',
@@ -149,6 +149,27 @@ vim.keymap.set('n', '<leader>se',
     end,
     { desc = 'eval scratch buffer' })
 
+-- terminal
+vim.keymap.set('n', '<leader>to',
+    function()
+        vim.cmd('ToggleTerm')
+    end,
+    { desc = 'open terminal' })
+
+function _G.set_terminal_keymaps()
+    local opts = { buffer = 0 }
+    vim.keymap.set('t', 'jk', [[<C-\><C-n>]], opts)
+    vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
+    vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
+    vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
+    vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
+    vim.keymap.set('t', '<esc>', [[<C-\><C-n><C-w>q]], opts)
+    vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
+end
+
+-- if you only want these mappings for toggle term use term://*toggleterm#* instead
+vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+
 -- ctrl + up/down -> next empty line
 vim.keymap.set({ 'n', 'v' }, '<C-up>', '<S-{>')
 vim.keymap.set({ 'n', 'v' }, '<C-down>', '<S-}>')
@@ -179,7 +200,7 @@ vim.keymap.set('n', '<leader><leader>',
     end,
     { desc = ':so' })
 
--- trouble (diagnostics) 
+-- trouble (diagnostics)
 vim.keymap.set('n', '<leader>!', '<cmd>TroubleToggle document_diagnostics<cr>',
     { silent = true, noremap = true, desc = 'diagnostics' }
 )

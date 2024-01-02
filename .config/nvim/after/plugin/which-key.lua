@@ -16,4 +16,7 @@ wk.register({
     o = {
         name = "+obsidian",
     },
+    t = {
+        name = "+terminal",
+    },
 }, { prefix = "<leader>" })

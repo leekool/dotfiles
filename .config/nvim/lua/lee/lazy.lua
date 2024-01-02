@@ -158,4 +158,10 @@ require("lazy").setup({
         lazy = false,
         ft = "markdown"
     },
+
+    {
+        "akinsho/toggleterm.nvim",
+        version = "*",
+        config = true
+    }
 })
