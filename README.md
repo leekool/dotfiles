@@ -1,6 +1,8 @@
 ## dotfiles
 
 #### screenshots
+![screenshot](screenshot2.png)
+![screenshot](screenshot.png)
 
 #### details
 - shell: [zsh](https://www.zsh.org)
@@ -22,3 +24,4 @@
 - clickable dwm-blocks
 - look into lazygit
 - move librewolf css into repo
+- fix ncmpcpp cover art & dwm-block mpd info
