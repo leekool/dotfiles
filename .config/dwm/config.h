@@ -59,15 +59,16 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class | instance | title | tags mask | isfloating | isterminal | noswallow | monitor | scratchkey */
-	{ "Gimp",     NULL,   NULL,           0, 1, 0,  0, -1, },
-	{ NULL,       "wezterm",   NULL,    0, 0, 1, -1, -1, },
-	{ NULL,       NULL,   "Event Tester", 0, 1, 0,  1, -1, },
-	{ NULL,       NULL,   "Media viewer", 0, 1, 0,  0, -1, },
-	{ NULL,       NULL,   "floating",     0, 1, 1,  0, -1, },
-	{ "music",    NULL,   NULL,    SPTAG(0), 1, 1,  0, -1, },
-	{ "spterm",   NULL,   NULL,    SPTAG(1), 1, 1,  0, -1, },
-	{ NULL,      "umpv",  NULL,    SPTAG(2), 1, 1,  0, -1, },
+	/* class |	instance |	title |			tags mask | isfloating | isterminal | noswallow | monitor | scratchkey */
+	{ "Gimp",	NULL,		NULL,           0,			1, 0,  0, -1, },
+	{ "feh",	NULL,		NULL,           0,			1, 0,  0, -1, },
+	{ NULL,     "wezterm",	NULL,			0,			0, 1, -1, -1, },
+	{ NULL,     NULL,		"Event Tester", 0,			1, 0,  1, -1, },
+	{ NULL,     NULL,		"Media viewer", 0,			1, 0,  0, -1, },
+	{ NULL,     NULL,		"floating",     0,			1, 1,  0, -1, },
+	{ "music",  NULL,		NULL,			SPTAG(0),	1, 1,  0, -1, },
+	{ "spterm", NULL,		NULL,			SPTAG(1),	1, 1,  0, -1, },
+	{ NULL,		"umpv",		NULL,			SPTAG(2),	1, 1,  0, -1, },
 };
 
 /* layout(s) */
