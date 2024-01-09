@@ -1,6 +1,6 @@
 neww
 set -g status off
-set-option -g default-shell /bin/fish
+set-option -g default-shell /bin/zsh
 set -g pane-border-style fg=blue
 set -g pane-active-border-style fg=blue
 split-window -v

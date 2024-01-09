@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# tmux new-session -s $$ "tmux source-file ~/.ncmpcpp/tsession"
+
 #-------------------------------#
 # Display current cover         #
 #-------------------------------#
