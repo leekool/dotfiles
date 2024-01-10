@@ -13,7 +13,7 @@
 source "`ueberzug library`"
 
 music_library="/run/media/lee/9C33-6BBD/music"
-fallback_image="$HOME/.config/ncmpcpp/ncmpcpp-ueberzug/img/fallback.png"
+fallback_image="$HOME/.config/ncmpcpp/fallback.png"
 
 COVER_SIZE=330
 CROP_BORDER=5
