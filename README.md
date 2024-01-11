@@ -24,4 +24,3 @@
 - clickable dwm-blocks
 - look into lazygit
 - move librewolf css into repo
-- fix ncmpcpp cover art & dwm-block mpd info
