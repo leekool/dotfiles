@@ -28,7 +28,7 @@ export GTK_THEME=Adwaita:dark
 export GTK2_RC_FILES=/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc
 export QT_STYLE_OVERRIDE=adwaita-dark
 
-alias img="feh"
+alias img="feh --info \"echo %wx%h\""
 alias vim="nvim"
 alias v="nvim"
 alias cat="bat"
