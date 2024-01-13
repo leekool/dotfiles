@@ -7,24 +7,22 @@ static const unsigned int maxWTab 			= 550;	/* tab menu width */
 static const unsigned int maxHTab 			= 50;	/* tab menu height */
 
 /* appearance */
-static unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int gappx     = 10;        /* gaps between windows */
-static unsigned int snap      = 32;       /* snap pixel */
-static const int swallowfloating = 0;  /* 1 means swallow floating windows by default */
-static int showbar            = 1;        /* 0 means no bar */
-static int topbar             = 1;        /* 0 means bottom bar */
-static int linepx             = 2;        /* 0 means no underline */
-static const char *fonts[]          = { "Cozette:size=14" };
-static const char dmenufont[]       = "Cozette:size=14";
-// static const char *fonts[]          = { "Tamzen:pixelsize=19" };
-// static const char dmenufont[]       = "Tamzen:pixelsize=19";
-static char normbgcolor[]     = "#000000";
-static char normbordercolor[] = "#222222";
-static char normfgcolor[]     = "#bbbbbb";
-static char ltsbgcolor[]      = "#bbbbbb";
-static char selfgcolor[]      = "#efefef";
-static char selbordercolor[]  = "#3d3d3d";
-static char selbgcolor[]      = "#800000";
+static unsigned int borderpx		= 1;        /* border pixel of windows */
+static const unsigned int gappx		= 10;       /* gaps between windows */
+static unsigned int snap			= 32;       /* snap pixel */
+static const int swallowfloating	= 0;		/* 1 means swallow floating windows by default */
+static int showbar					= 1;        /* 0 means no bar */
+static int topbar					= 1;        /* 0 means bottom bar */
+static int linepx					= 2;        /* 0 means no underline */
+static const char *fonts[]			= { "Cozette:size=14" };
+static const char dmenufont[]		= "Cozette:size=14";
+static char normbgcolor[]			= "#000000";
+static char normbordercolor[] 		= "#222222";
+static char normfgcolor[]     		= "#bbbbbb";
+static char ltsbgcolor[]      		= "#bbbbbb";
+static char selfgcolor[]      		= "#efefef";
+static char selbordercolor[]  		= "#3d3d3d";
+static char selbgcolor[]      		= "#800000";
 static char *colors[][4] = {
        /*               fg           bg           border   */
        [SchemeNorm]  = { normfgcolor, normbgcolor, normbordercolor },
@@ -35,8 +33,6 @@ static char *colors[][4] = {
 
 /* tagging */
 static const char *tags[] = { "Ⅰ", "Ⅱ", "Ⅲ", "Ⅳ", "Ⅴ", "Ⅵ" };
-// static const char *tags[] = { "I", "II", "III", "IV", "V", "VI", "VII" };
-/* static const char *tags[] = { "а", "б", "в", "г", "д", "е", "ё" }; */
 
 typedef struct {
 	const char *name;
@@ -106,9 +102,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", normbgcolor, "-nf", selfgcolor, "-sb", selfgcolor, "-sf", normbgcolor, NULL };
 static const char *termcmd[]  = { "wezterm", NULL };
 
-/*
- * Xresources preferences to load at startup
- */
+/* xresources preferences to load at startup */
 ResourcePref resources[] = {
 		{ "normbgcolor",        STRING,  &normbgcolor },
 		{ "normbordercolor",    STRING,  &normbordercolor },
@@ -128,6 +122,7 @@ ResourcePref resources[] = {
 
 #include <X11/XF86keysym.h>
 #include "patch/shift-tools.c"
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	
@@ -171,8 +166,9 @@ static Key keys[] = {
 	// { MODKEY,           XK_y,      spawn,          SHCMD("dmenu_search") },
 	/* scratchpads */
 	// { MODKEY,           XK_m,      togglescratch,  {.ui = 0 } }, /* cmus     */
-	{ MODKEY,           XK_o,      togglescratch,  {.ui = 1 } }, /* terminal */
 	// { MODKEY,           XK_u,      togglescratch,  {.ui = 2 } }, /* umpv     */
+	{ MODKEY,				        XK_o,      togglescratch,  {.ui = 1 } }, /* terminal */
+
 	{ MODKEY,                       XK_Left,   shiftview,      {.i = -1} },
 	{ MODKEY,                       XK_Right,  shiftview,      {.i = +1} },
 	{ MODKEY|Mod1Mask,              XK_Left,   shifttag,       {.i = -1} },
