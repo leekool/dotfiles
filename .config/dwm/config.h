@@ -40,8 +40,8 @@ typedef struct {
 } Sp;
 
 const char *spumpv[] = {"umpv", NULL };
-const char *spmusic[] = {"wezterm", "-c", "music", "-e", "music", NULL };
-const char *spterm[] = {"wezterm", "--class", "spterm", "-o", "window.dimensions.columns=120", "-o", "window.dimensions.lines=34", NULL };
+const char *spmusic[] = {"wezterm start", "--class", "music", "-e", "ncmpcpp -q", NULL };
+const char *spterm[] = {"wezterm start", "--class", "spterm", NULL };
 
 static Sp scratchpads[] = {
 	/* name          cmd  */
