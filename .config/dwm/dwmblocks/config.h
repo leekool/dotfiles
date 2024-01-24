@@ -20,8 +20,8 @@ static const Block blocks[] = {
 	/* {"",	"sb-doppler",	0,	13}, */
 	/* {"",	"sb-nettraf",	1,	16}, */
 	{"",	"sb-internet",	5,	4},
+	{"",	"sb-battery",	5,	3},
 	{"",	"sb-volume",	0,	10},
-	// {"",	"sb-battery",	5,	3},
 	{"",	"sb-clock",	60,	1},
 	/* {"",	"sb-help-icon",	0,	15}, */
 };

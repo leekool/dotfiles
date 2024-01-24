@@ -2,18 +2,17 @@ output DP1
 off
 output DP2
 off
-output DP3
+output HDMI1
 off
-output DP4
+output HDMI2
 off
 output VIRTUAL1
 off
 output eDP1
-crtc 0
-mode 2560x1600
+crtc 1
+mode 1920x1080
 pos 0x0
-primary
-rate 59.99
+rate 60.01
 x-prop-broadcast_rgb Automatic
 x-prop-colorspace Default
 x-prop-max_bpc 12

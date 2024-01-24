@@ -152,10 +152,10 @@ static Key keys[] = {
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 
-	// { MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-	// { MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-	// { MODKEY|Mod1Mask,              XK_comma,  tagmon,         {.i = -1 } },
-	// { MODKEY|Mod1Mask,              XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
+	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
+	{ MODKEY|Mod1Mask,              XK_comma,  tagmon,         {.i = -1 } },
+	{ MODKEY|Mod1Mask,              XK_period, tagmon,         {.i = +1 } },
 
 	// { MODKEY,           XK_e,      spawn,          TSHCMD("lfp") },
 	// { MODKEY|ShiftMask, XK_m,      spawn,          TSHCMD("neomutt") },

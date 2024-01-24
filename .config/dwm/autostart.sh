@@ -1,6 +1,6 @@
 #!/bin/sh
 
 dwmblocks &
-feh --bg-tile ~/.config/dwm/wallpaper/tile.png
+feh --bg-fill ~/.config/dwm/wallpaper/pole.jpg
 picom -CGb &
 dunst &
