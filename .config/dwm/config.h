@@ -39,15 +39,15 @@ typedef struct {
 	const void *cmd;
 } Sp;
 
-const char *spumpv[] = {"umpv", NULL };
-const char *spmusic[] = {"wezterm start", "--class", "music", "-e", "ncmpcpp -q", NULL };
-const char *spterm[] = {"wezterm start", "--class", "spterm", NULL };
+const char *spff[] = {"librewolf", NULL };
+const char *spmusic[] = {"wezterm", "start", "--class", "spmusic", "-e", "ncmpcpp", "-q", NULL };
+const char *spterm[] = {"wezterm", "start", "--class", "spterm", NULL };
 
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spmusic", spmusic},
 	{"spterm",  spterm},
-	{"spumpv",  spumpv},
+	{"spff",  spff},
 };
 
 static const Rule rules[] = {
@@ -58,13 +58,13 @@ static const Rule rules[] = {
 	/* class |	instance |	title |			tags mask | isfloating | isterminal | noswallow | monitor | scratchkey */
 	{ "Gimp",	NULL,		NULL,           0,			1, 0,  0, -1, },
 	{ "feh",	NULL,		NULL,           0,			1, 0,  0, -1, },
-	{ NULL,     "wezterm",	NULL,			0,			0, 1, -1, -1, },
 	{ NULL,     NULL,		"Event Tester", 0,			1, 0,  1, -1, },
 	{ NULL,     NULL,		"Media viewer", 0,			1, 0,  0, -1, },
 	{ NULL,     NULL,		"floating",     0,			1, 1,  0, -1, },
-	{ "music",  NULL,		NULL,			SPTAG(0),	1, 1,  0, -1, },
+	{ "spmusic",  NULL,		NULL,			SPTAG(0),	1, 1,  0, -1, },
 	{ "spterm", NULL,		NULL,			SPTAG(1),	1, 1,  0, -1, },
-	{ NULL,		"umpv",		NULL,			SPTAG(2),	1, 1,  0, -1, },
+	// { NULL,     "wezterm",	NULL,			0,			0, 1, -1, -1, },
+	// { NULL,		"umpv",		NULL,			SPTAG(2),	1, 1,  0, -1, },
 };
 
 /* layout(s) */
@@ -165,9 +165,9 @@ static Key keys[] = {
 	// { MODKEY,           XK_x,      spawn,          SHCMD("slock") },
 	// { MODKEY,           XK_y,      spawn,          SHCMD("dmenu_search") },
 	/* scratchpads */
-	// { MODKEY,           XK_m,      togglescratch,  {.ui = 0 } }, /* cmus     */
-	// { MODKEY,           XK_u,      togglescratch,  {.ui = 2 } }, /* umpv     */
-	{ MODKEY,				        XK_o,      togglescratch,  {.ui = 1 } }, /* terminal */
+	{ MODKEY|Mod1Mask,   			XK_m,      togglescratch,  {.ui = 0 } }, /* music */
+	{ MODKEY|Mod1Mask,		        XK_b,      togglescratch,  {.ui = 2 } }, /* librewolf */
+	{ MODKEY,				        XK_o,      togglescratch,  {.ui = 1} }, /* terminal */
 
 	{ MODKEY,                       XK_Left,   shiftview,      {.i = -1} },
 	{ MODKEY,                       XK_Right,  shiftview,      {.i = +1} },
@@ -179,6 +179,7 @@ static Key keys[] = {
 	{ MODKEY|Mod1Mask,              XK_s,                     spawn, SHCMD("sh screenshotssh.sh window") },
 	{ MODKEY,                       XK_e,                     spawn, SHCMD("sh runemacs.sh") },
 	{ MODKEY,                       XK_c,                     spawn, SHCMD("sh xcolor.sh") },
+	{ MODKEY,                       XK_p,                     spawn, SHCMD("mpc toggle") },
 	{ 0,                            XF86XK_MonBrightnessUp,   spawn, SHCMD("xbacklight -inc 5") },
 	{ 0,                            XF86XK_MonBrightnessDown, spawn, SHCMD("xbacklight -dec 5") },
 	{ 0,                            XF86XK_AudioMute,         spawn, SHCMD("amixer -D pulse set Master toggle && kill -44 $(pidof dwmblocks)") },

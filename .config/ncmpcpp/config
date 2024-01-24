@@ -5,11 +5,14 @@ ncmpcpp_directory = ~/.config/ncmpcpp
 mpd_host = localhost
 mpd_port = 6600
 mpd_connection_timeout = 5
-mpd_music_dir = "/run/media/lee/9C33-6BBD/music/"
+# mpd_music_dir = "/run/media/lee/9C33-6BBD/music/"
+mpd_music_dir = "~/music"
 
-execute_on_song_change="bash ~/.config/ncmpcpp/cover.sh update > /dev/null 2>&1"
+# execute_on_song_change="bash ~/.config/ncmpcpp/cover.sh update > /dev/null 2>&1"
+execute_on_song_change="pkill -RTMIN+11 dwmblocks"
+execute_on_player_state_change="pkill -RTMIN+11 dwmblocks"
 
-#mpd_crossfade_time = 5
+# mpd_crossfade_time = 5
 
 # Exclude pattern for random song action
 # http://www.boost.org/doc/libs/1_46_1/libs/regex/doc/html/boost_regex/syntax/perl_syntax.html
