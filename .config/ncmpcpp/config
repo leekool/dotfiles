@@ -9,7 +9,8 @@ mpd_connection_timeout = 5
 mpd_music_dir = "~/music"
 
 # execute_on_song_change="bash ~/.config/ncmpcpp/cover.sh update > /dev/null 2>&1"
-execute_on_song_change="pkill -RTMIN+11 dwmblocks"
+
+execute_on_song_change="sh ~/.config/ncmpcpp/change.sh"
 execute_on_player_state_change="pkill -RTMIN+11 dwmblocks"
 
 # mpd_crossfade_time = 5
@@ -214,8 +215,6 @@ song_columns_list_format = "(2f)[5]{} (4f)[5]{n} (2f)[8]{} (25)[8]{t} (2f)[7]{} 
 ## changes. The environment variable MPD_PLAYER_STATE is set to the current
 ## state (either unknown, play, pause, or stop) for its duration.
 ##
-#
-#execute_on_player_state_change = ""
 #
 #playlist_show_mpd_host = no
 #
@@ -461,7 +460,7 @@ state_line_color = 14
 #
 state_flags_color = 3
 #
-main_window_color = 16
+main_window_color = 5
 #
 color1 = 14
 #
@@ -473,7 +472,8 @@ progressbar_elapsed_color = 12
 #
 #
 statusbar_time_color = 14
-#
+
+# Playing / Paused
 player_state_color = 14
 #
 window_border_color = magenta

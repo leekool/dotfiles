@@ -127,8 +127,8 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	
 	/* spawning programs */
-	{ MODKEY,           XK_r,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,           XK_b,      togglebar,      {0} },
+	{ MODKEY,						XK_r,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,						XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
@@ -139,7 +139,7 @@ static Key keys[] = {
 	{ MODKEY|Mod1Mask,              XK_h,      setcfact,       {.f = +0.25} },
 	{ MODKEY|Mod1Mask,              XK_l,      setcfact,       {.f = -0.25} },
 
-	{ MODKEY,           XK_Return, zoom,          {0} },
+	{ MODKEY,				        XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_q,	   view,           {0} },
 	{ MODKEY|Mod1Mask,              XK_q,      quit,           {0} },
 	{ MODKEY|Mod1Mask,              XK_c,      killclient,     {0} },

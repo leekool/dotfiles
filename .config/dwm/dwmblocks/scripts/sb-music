@@ -3,7 +3,7 @@
 #  ♫ ♬
 
 filter() {
-  sed "/^volume:/d; s/\\&/&amp;/g; /^\\[paused\\]/d; /\\[playing\\].*/d; /^ERROR/Q" | paste -sd ' ' -
+  sed "/^volume:/d; /^\\[paused\\]/d; /\\[playing\\].*/d; /^ERROR/Q" | paste -sd ' ' -
 }
 
 track=$(mpc status | filter)
