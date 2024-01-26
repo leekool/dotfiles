@@ -13,11 +13,12 @@ case $BLOCK_BUTTON in
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
-VOL="$(amixer sget Master | awk '/Left:/ {print substr($5, 2, length($5) - 3)}')"
-TOGGLE="$(amixer sget Master | awk '/Left:/ {print substr($6, 2, length($6) - 2)}')" # 'off' for muted
+# VOL="$(amixer sget Master | awk '/Left:/ {print substr($5, 2, length($5) - 3)}')"
+# TOGGLE="$(amixer sget Master | awk '/Left:/ {print substr($6, 2, length($6) - 2)}')" # 'off' for muted
+VOL="$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{if ($3 == "[MUTED]") {print 0} else {print $2 * 100}}')"
 
 # if muted, print 🔇 and exit.
-if [ "$TOGGLE" = "off" ] || [ "$VOL" = 0 ]; then echo ﱝ && exit; fi
+if [ "$VOL" = 0 ]; then echo ﱝ && exit; fi
 
 if      [ "$VOL" -gt 66 ]; then ICON=""; \
 elif    [ "$VOL" -gt 33 ]; then ICON=""; \
