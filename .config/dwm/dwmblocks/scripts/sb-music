@@ -2,15 +2,14 @@
 
 #  ♫ ♬
 
-filter() {
-  sed "/^volume:/d; /^\\[paused\\]/d; /\\[playing\\].*/d; /^ERROR/Q" | paste -sd ' ' -
-}
+filter() { sed "/^volume:/d; /^\\[paused\\]/d; /\\[playing\\].*/d; /^ERROR/Q" | paste -sd ' ' - | tr -d '\n'; }
 
 track=$(mpc status | filter)
 status=$(mpc status | grep -oP "\[\K.*?(?=\])")
-icon="♬"
+icon=""
 
 [ "$status" = "paused" ] && icon=""
+[ "$status" = "playing" ] && icon="♬"
 
 printf "%s %s" "$icon" "$track";
 
