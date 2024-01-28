@@ -11,7 +11,7 @@
 - compositor: [picom](https://github.com/yshui/picom)
 - editor: [neovim](https://github.com/neovim/neovim)
 - music: [ncmpcpp](https://github.com/ncmpcpp/ncmpcpp)
-- file browsing: [ranger](https://github.com/ranger/ranger)
+- file browser: [ranger](https://github.com/ranger/ranger)
 - notifications: [dunst](https://dunst-project.org)
 - email: [mutt](http://mutt.org)
 - fonts:
