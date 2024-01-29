@@ -18,7 +18,7 @@ esac
 VOL="$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{if ($3 == "[MUTED]") {print 0} else {print $2 * 100}}')"
 
 # if muted, print 🔇 and exit.
-if [ "$VOL" = 0 ]; then echo ﱝ && exit; fi
+if [ "$VOL" -le 0 ]; then echo ﱝ && exit; fi
 
 if      [ "$VOL" -gt 66 ]; then ICON=""; \
 elif    [ "$VOL" -gt 33 ]; then ICON=""; \
