@@ -2,7 +2,7 @@
 
 #  ♫ ♬
 
-filter() { sed "/^volume:/d; /^\\[paused\\]/d; /\\[playing\\].*/d; /^ERROR/Q" | paste -sd ' ' - | tr -d '\n'; }
+filter() { sed "/^volume:/d; /^\\[paused\\]/d; /\\[playing\\].*/d; /^ERROR/Q" | paste -sd ' ' -; }
 
 track=$(mpc status | filter)
 status=$(mpc status | grep -oP "\[\K.*?(?=\])")
@@ -11,9 +11,10 @@ icon=""
 [ "$status" = "paused" ] && icon=""
 [ "$status" = "playing" ] && icon="♬"
 
-printf "%s %s" "$icon" "$track";
+printf "%s %s\n" "$icon" "$track";
+# echo -n "$icon $track"
 
-pidof -x sb-mpdup >/dev/null 2>&1 || sb-mpdup >/dev/null 2>&1 &
+# pidof -x sb-mpdup >/dev/null 2>&1 || sb-mpdup >/dev/null 2>&1 &
 
 # case $BLOCK_BUTTON in
 # 	1) mpc status | filter ; setsid -f "$TERMINAL" -e ncmpcpp ;;  # right click, pause/unpause
