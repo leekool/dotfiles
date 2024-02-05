@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# tmux new-session -s $$ "tmux source-file ~/.ncmpcpp/tsession"
+# tmux new-session -s $$ "tmux source-file ~/.config/ncmpcpp/tmux-session"
 
 #-------------------------------#
 # Display current cover         #
@@ -19,7 +19,6 @@ COVER_SIZE=330
 CROP_BORDER=5
 
 get_cover() {
-
     ext="$(mpc --format %file% current | sed 's/^.*\.//')"
 
     if [ "$ext" = "flac" ]; then

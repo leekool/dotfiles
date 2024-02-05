@@ -13,4 +13,3 @@ select-pane -t 0
 send-keys 'bash ~/.config/ncmpcpp/cover.sh' C-m
 select-pane -t 2
 send-keys 'ncmpcpp' C-m
-
