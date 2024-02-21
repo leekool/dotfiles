@@ -14,6 +14,7 @@
 - file browser: [ranger](https://github.com/ranger/ranger)
 - notifications: [dunst](https://dunst-project.org)
 - email: [mutt](http://mutt.org)
+- key remapping: [kmonad](https://github.com/kmonad/kmonad)
 - fonts:
     - [JetBrains Mono](https://www.jetbrains.com/lp/mono) with [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts) fallback
     - [Cozette](https://github.com/slavfox/Cozette)
