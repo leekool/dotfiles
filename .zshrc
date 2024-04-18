@@ -31,6 +31,7 @@ export QT_STYLE_OVERRIDE=adwaita-dark
 alias img="feh --info \"echo %wx%h\""
 alias vim="nvim"
 alias v="nvim"
+alias lg="lazygit"
 alias cat="bat"
 alias pdf="sioyek"
 alias shutdown="shutdown now"
