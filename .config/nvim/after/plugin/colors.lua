@@ -1,7 +1,6 @@
 function ColorScheme(color)
-	-- color = color or "kanagawa"
-	-- vim.cmd.colorscheme(color)
-	vim.cmd.colorscheme "catppuccin"
+	-- vim.cmd.colorscheme "catppuccin"
+	vim.cmd.colorscheme "kanagawa"
 end
 
 ColorScheme()

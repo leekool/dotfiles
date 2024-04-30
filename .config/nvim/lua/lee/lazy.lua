@@ -80,7 +80,8 @@ require("lazy").setup({
     "nvim-telescope/telescope.nvim",
     "nvim-telescope/telescope-file-browser.nvim",
 
-    { "catppuccin/nvim",      name = "catppuccin" },
+    { "catppuccin/nvim", name = "catppuccin" },
+    { "rebelot/kanagawa.nvim", name = "kanagawa" },
 
     {
         "folke/noice.nvim",

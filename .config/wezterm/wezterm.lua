@@ -1,11 +1,14 @@
 local wezterm = require 'wezterm'
 local c = {}
 
-local tab_background_color = 'rgba(30, 30, 42, 0.975)'
+-- local tab_background_color = 'rgba(30, 30, 42, 0.975)'
+local tab_background_color = 'rgba(31, 31, 47, 0.94)'
 
-c.color_scheme = 'Catppuccin Mocha (Gogh)'
+-- c.color_scheme = 'Catppuccin Mocha (Gogh)'
+c.color_scheme = 'Kanagawa (Gogh)'
 
 c.colors = {
+    background = 'rgba(31, 31, 47, 0.965)',
     tab_bar = {
         background = tab_background_color,
         -- inactive_tab = {
