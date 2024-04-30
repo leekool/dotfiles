@@ -1,6 +1,5 @@
 require("lualine").setup({
     options = {
-        fmt = string.lower,
         component_separators = { left = '', right = '' },
         icons_enabled = true,
         theme = "auto",
@@ -21,7 +20,9 @@ require("lualine").setup({
         -- lualine_a = {
         --     { "mode", fmt = function(str) return str:sub(1, 1) end }
         -- },
-        lualine_a = { "mode" },
+        lualine_a = {
+            { "mode", fmt = string.lower }
+        },
         lualine_b = { "branch", "diagnostics" },
         lualine_c = {
             "filename",
@@ -29,7 +30,9 @@ require("lualine").setup({
         },
         -- lualine_c = { "filename", "filesize" },
         lualine_x = { "diff", "filetype" },
-        lualine_y = { "progress" },
+        lualine_y = {
+            { "progress", fmt = string.lower }
+        },
         lualine_z = { "location" },
     },
     inactive_sections = {
