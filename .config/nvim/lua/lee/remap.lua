@@ -35,12 +35,33 @@ vim.keymap.set('n', '<leader>.',
 vim.keymap.set('n', '<leader>,', require('telescope.builtin').buffers,
     { desc = 'switch buffer' })
 
+-- command history
+vim.keymap.set('n', '<leader>sc',
+    function()
+        require('telescope.builtin').command_history()
+    end,
+    { desc = 'command history' })
+
 -- grep string
 vim.keymap.set('n', '<leader>ss',
     function()
         require('telescope.builtin').grep_string({ search = vim.fn.input('grep > ') })
     end,
     { desc = 'grep string' })
+
+-- grep file name
+vim.keymap.set('n', '<leader>sf',
+    function()
+        require('telescope.builtin').find_files({ search = vim.fn.input('grep > ') })
+    end,
+    { desc = 'grep file name' })
+
+-- grep word
+vim.keymap.set('n', '<leader>sw',
+    function()
+        require('telescope.builtin').grep_string()
+    end,
+    { desc = 'grep word on cursor' })
 
 -- live grep (requires ripgrep)
 vim.keymap.set('n', '<leader>sl',
@@ -84,6 +105,13 @@ vim.keymap.set('n', '<leader>Gc',
         require('telescope.builtin').git_commits()
     end,
     { desc = 'git commits' })
+
+-- git grep changed files
+vim.keymap.set('n', '<leader>Gg',
+    function()
+        require('telescope.builtin').git_files()
+    end,
+    { desc = 'git grep changed files' })
 
 -- git branches
 vim.keymap.set('n', '<leader>Gb',

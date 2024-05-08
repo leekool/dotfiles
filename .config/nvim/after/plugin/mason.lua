@@ -11,6 +11,6 @@ require("mason-lspconfig").setup({
         "lua_ls",
     },
     handlers = {
-        lsp.default_setup
+        lsp.default_setup,
     }
 })

@@ -59,6 +59,14 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
+require('lspconfig').html.setup({
+    filetypes = { "html", "templ" }
+})
+
+require('lspconfig').htmx.setup({
+    filetypes = { "html", "templ" }
+})
+
 lsp.setup()
 
 vim.diagnostic.config({
