@@ -80,7 +80,7 @@ require("lazy").setup({
     "nvim-telescope/telescope.nvim",
     "nvim-telescope/telescope-file-browser.nvim",
 
-    { "catppuccin/nvim", name = "catppuccin" },
+    { "catppuccin/nvim",       name = "catppuccin" },
     { "rebelot/kanagawa.nvim", name = "kanagawa" },
 
     {
@@ -124,12 +124,16 @@ require("lazy").setup({
             end,
     },
 
+    -- {
+    --     "n-shift/scratch.nvim",
+    --     config =
+    --         function()
+    --             require("telescope").load_extension("scratch")
+    --         end,
+    -- },
     {
-        "n-shift/scratch.nvim",
-        config =
-            function()
-                require("telescope").load_extension("scratch")
-            end,
+        "LintaoAmons/scratch.nvim",
+        -- event = "VeryLazy",
     },
 
     {

@@ -167,15 +167,37 @@ vim.keymap.set('n', '<leader>u',
 -- scratch
 vim.keymap.set('n', '<leader>sb',
     function()
-        vim.cmd('Telescope scratch')
+        vim.cmd('Scratch')
     end,
+
     { desc = 'new scratch buffer' })
 
-vim.keymap.set('n', '<leader>se',
+vim.keymap.set('n', '<leader>sm',
     function()
-        vim.cmd('ScratchEval')
+        require("scratch").scratchByType("md")
     end,
-    { desc = 'eval scratch buffer' })
+
+    { desc = 'new markdown scratch buffer' })
+
+vim.keymap.set('n', '<leader>sp',
+    function()
+        vim.cmd('ScratchPad')
+    end,
+
+    { desc = 'open scratch pad' })
+
+vim.keymap.set('n', '<leader>so',
+    function()
+        vim.cmd('ScratchOpen')
+    end,
+
+    { desc = 'open scratch file' })
+
+-- vim.keymap.set('n', '<leader>se',
+--     function()
+--         vim.cmd('ScratchEval')
+--     end,
+--     { desc = 'eval scratch buffer' })
 
 -- terminal
 vim.keymap.set('n', '<leader>to',
