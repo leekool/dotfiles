@@ -7,7 +7,7 @@ vim.o.cmdheight = 0
 vim.opt.signcolumn = "auto"
 vim.opt.number = true
 vim.opt.numberwidth = 1
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
