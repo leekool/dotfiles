@@ -22,6 +22,10 @@ require("lazy").setup({
         },
     },
 
+    "mfussenegger/nvim-dap",
+    "nvim-neotest/nvim-nio",
+    "rcarriga/nvim-dap-ui",
+
     "VonHeikemen/lsp-zero.nvim",
 
     "nvim-lua/lsp-status.nvim",
