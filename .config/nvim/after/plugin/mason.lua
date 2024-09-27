@@ -6,8 +6,10 @@ local lsp = require("lsp-zero")
 
 require("mason-lspconfig").setup({
     ensure_installed = {
-        "tsserver",
-        "rust_analyzer",
+        "html",
+        "svelte",
+        "cssls",
+        "ts_ls",
         "lua_ls",
     },
     handlers = {

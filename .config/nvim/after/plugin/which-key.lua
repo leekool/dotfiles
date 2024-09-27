@@ -3,20 +3,10 @@ local wk = require("which-key")
 vim.o.timeout = true
 vim.o.timeoutlen = 300
 
-wk.register({
-    G = {
-        name = "+git",
-    },
-    s = {
-        name = "+search/scratch",
-    },
-    f = {
-        name = "+file/find",
-    },
-    o = {
-        name = "+obsidian",
-    },
-    t = {
-        name = "+terminal",
-    },
-}, { prefix = "<leader>" })
+wk.add({
+    { "<leader>G", group = "git" },
+    { "<leader>f", group = "file/find" },
+    { "<leader>o", group = "obsidian" },
+    { "<leader>s", group = "search/scratch" },
+    { "<leader>t", group = "terminal" },
+})

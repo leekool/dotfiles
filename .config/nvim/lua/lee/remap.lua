@@ -70,28 +70,6 @@ vim.keymap.set('n', '<leader>sl',
     end,
     { desc = 'live grep' })
 
--- find references
-vim.keymap.set('n', '<leader>fr',
-    function()
-        require('telescope.builtin').lsp_references()
-    end,
-    { desc = 'find references' })
-
--- find definition
-vim.keymap.set('n', '<leader>fd',
-    function()
-        require('telescope.builtin').lsp_definitions()
-    end,
-    { desc = 'find definition' })
-
--- find implementation
-vim.keymap.set('n', '<leader>fi',
-    function()
-        require('telescope.builtin').lsp_implementations()
-    end,
-
-    { desc = 'find implementation' })
-
 -- git status
 vim.keymap.set('n', '<leader>Gs',
     function()
@@ -198,6 +176,64 @@ vim.keymap.set('n', '<leader>so',
 --         vim.cmd('ScratchEval')
 --     end,
 --     { desc = 'eval scratch buffer' })
+
+-- LSP
+-- info
+vim.keymap.set('n', 'K',
+    function()
+        vim.lsp.buf.hover()
+    end,
+    { desc = 'info' })
+
+-- variable rename
+vim.keymap.set('n', '<leader>vr',
+    function()
+        vim.lsp.buf.rename()
+    end,
+    { desc = 'variable rename' })
+
+-- find definition
+vim.keymap.set('n', 'gd',
+    function()
+        vim.lsp.buf.definition()
+    end,
+    { desc = 'go to definition' })
+
+vim.keymap.set('n', 'gr',
+    function()
+        vim.lsp.buf.references()
+    end,
+    { desc = 'get references' })
+
+-- find references
+vim.keymap.set('n', '<leader>fr',
+    function()
+        require('telescope.builtin').lsp_references()
+    end,
+    { desc = 'find references' })
+
+-- find definition in telescope
+vim.keymap.set('n', '<leader>fd',
+    function()
+        require('telescope.builtin').lsp_definitions()
+    end,
+    { desc = 'find definition' })
+
+-- find definition
+vim.keymap.set('n', '<leader>fw',
+    function()
+        vim.lsp.buf.workspace_symbol()
+    end,
+    { desc = 'find in workspace' })
+
+-- find implementation
+vim.keymap.set('n', '<leader>fi',
+    function()
+        require('telescope.builtin').lsp_implementations()
+    end,
+
+    { desc = 'find implementation' })
+
 
 -- terminal
 vim.keymap.set('n', '<leader>to',
