@@ -287,8 +287,32 @@ vim.keymap.set('n', '<leader><leader>',
     { desc = ':so' })
 
 -- trouble (diagnostics)
-vim.keymap.set('n', '<leader>!', '<cmd>TroubleToggle document_diagnostics<cr>',
+vim.keymap.set('n', '<leader>!', '<cmd>Trouble diagnostics toggle filter.buf=0<cr>',
     { silent = true, noremap = true, desc = 'diagnostics' }
+)
+
+vim.keymap.set('n', '<leader>db', '<cmd>Trouble diagnostics toggle filter.buf=0<cr>',
+    { silent = true, noremap = true, desc = 'diagnostics (buffer)' }
+)
+
+vim.keymap.set('n', '<leader>da', '<cmd>Trouble diagnostics toggle<cr>',
+    { silent = true, noremap = true, desc = 'diagnostics (all)' }
+)
+
+vim.keymap.set('n', '<leader>ds', '<cmd>Trouble symbols toggle focus=false<cr>',
+    { silent = true, noremap = true, desc = 'symbols' }
+)
+
+vim.keymap.set('n', '<leader>dl', '<cmd>Trouble lsp toggle focus=false<cr>',
+    { silent = true, noremap = true, desc = 'lsp definitions, references' }
+)
+
+vim.keymap.set('n', '<leader>dL', '<cmd>Trouble loclist toggle<cr>',
+    { silent = true, noremap = true, desc = 'location list' }
+)
+
+vim.keymap.set('n', '<leader>dq', '<cmd>Trouble qflist toggle<cr>',
+    { silent = true, noremap = true, desc = 'quickfix list' }
 )
 
 -- format
