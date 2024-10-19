@@ -76,6 +76,8 @@ require('lspconfig').htmx.setup({
     filetypes = { "html", "templ" }
 })
 
+vim.g.zig_fmt_autosave = 0
+
 lsp.setup()
 
 vim.diagnostic.config({

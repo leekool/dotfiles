@@ -49,5 +49,6 @@ alias sshmount="sshfs root@imre.al:/var/www ~/imre.al"
 alias mail="mailsync > /dev/null 2>&1 &> /dev/null 2>&1 & bash -c neomutt"
 alias music="ncmpcpp -q"
 alias ls="eza --long --no-user --git --icons"
+alias zbr="zig build run"
 
 eval "$(starship init zsh)"
