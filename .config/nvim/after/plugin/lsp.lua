@@ -15,10 +15,10 @@ lsp.configure('lua_ls', {
 })
 
 lsp.configure('zls', {
-    cmd = { '/home/lee/.local/share/nvim/mason/packages/zls/zls' },
+    cmd = { '/home/lee/clone/zls/zig-out/bin/zls' },
     settings = {
         zls = {
-            zig_exe_path = '/home/lee/.local/share/nvim/mason/packages/zls/zls'
+            -- zig_exe_path = '/home/lee/clone/zls/zig-out/bin/zls'
         }
     }
 })
