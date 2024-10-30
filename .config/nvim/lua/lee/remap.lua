@@ -108,7 +108,7 @@ vim.keymap.set('n', '<leader>Gm',
 -- obsidian folder
 vim.keymap.set('n', '<leader>of',
     function()
-        vim.cmd('Telescope file_browser path=~/notes/notes select_buffer=true hidden=true')
+        vim.cmd('Telescope file_browser path=~/notes select_buffer=true hidden=true')
     end,
     { desc = 'obsidian folder (telescope)' })
 

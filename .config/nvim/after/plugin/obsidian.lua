@@ -2,7 +2,7 @@ require("obsidian").setup({
     workspaces = {
         {
             name = "notes",
-            path = "~/notes/notes"
+            path = "~/notes"
         }
     },
     note_id_func = function(title)
@@ -21,4 +21,8 @@ require("obsidian").setup({
         end
         return tostring(os.time()) .. "-" .. suffix
     end,
+    completion = {
+        nvim_cmp = true,
+        min_char = 2,
+    },
 })
