@@ -33,12 +33,16 @@
                                                                           left down rght
 )
 
+(defalias
+  ectl  (tap-hold 180 esc lctl)
+)
+
 (deflayer lee
   _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _         bspc _
   _    _    _    _    _    _    _    _    _    _    _    _    _         
-  _    _    _    _    _    _    _    _    _    _    _    _    _         _
+  @ectl  _    _    _    _    _    _    _    _    _    _    _    _         _
   _    _    _    _    _    _    _    _    _    _    _    _    _          
-  _    _    _    _    _         _         spc  _    _    _    _    _    _    _
+  _    _    _    _    _         _         spc  $    _    _    _    KatakanaHiragana    _    KatakanaHiragana
                                                                    _    _    _
 )
