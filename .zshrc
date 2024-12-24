@@ -51,6 +51,14 @@ alias music="ncmpcpp -q"
 alias ls="eza --long --no-user --git --icons"
 alias cls="clear && eza --long --no-user --git --icons"
 alias zbr="zig build run"
+alias brd="bun run dev"
 alias cdc="cd ~/clone"
 
 eval "$(starship init zsh)"
+
+# bun completions
+[ -s "/home/lee/.bun/_bun" ] && source "/home/lee/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
