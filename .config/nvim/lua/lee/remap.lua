@@ -131,6 +131,13 @@ vim.keymap.set('n', '<leader>od',
     end,
     { desc = "daily notes" })
 
+-- obsidian tomorrow's note
+vim.keymap.set('n', '<leader>ot',
+    function()
+        vim.cmd('ObsidianTomorrow')
+    end,
+    { desc = "tomorrow's note" })
+
 -- obsidian search notes
 vim.keymap.set('n', '<leader>os',
     function()

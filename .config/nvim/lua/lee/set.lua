@@ -1,5 +1,6 @@
 -- vim.opt.guicursor = { 'a:block' }
 vim.opt.termguicolors = true
+vim.opt.conceallevel = 1
 
 vim.cmd('language en_AU.utf8')
 vim.o.cmdheight = 0
