@@ -22,6 +22,11 @@ require("lazy").setup({
         },
     },
 
+    {
+        'stevearc/conform.nvim',
+        opts = {},
+    },
+
     "mfussenegger/nvim-dap",
     "nvim-neotest/nvim-nio",
     "rcarriga/nvim-dap-ui",
@@ -199,7 +204,7 @@ require("lazy").setup({
             "MunifTanjim/nui.nvim",
             --- The below dependencies are optional,
             "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-            "zbirenbaum/copilot.lua", -- for providers='copilot'
+            "zbirenbaum/copilot.lua",      -- for providers='copilot'
             {
                 -- support for image pasting
                 "HakonHarnes/img-clip.nvim",

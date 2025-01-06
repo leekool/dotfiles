@@ -49,7 +49,8 @@ cmp.setup({
 -- })
 
 lsp.set_preferences({
-    suggest_lsp_servers = false,
+    -- suggest_lsp_servers = false,
+    suggest_lsp_servers = true,
     sign_icons = {
         error = '✘',
         warn = '▲',
@@ -80,13 +81,12 @@ lsp.on_attach(function(client, bufnr)
     -- vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
--- require('lspconfig').html.setup({
---     filetypes = { "html", "templ", "zmpl" }
--- })
---
--- require('lspconfig').htmx.setup({
---     filetypes = { "html", "templ", "zmpl" }
--- })
+require('lspconfig').html.setup({
+    filetypes = { "html", "templ", "zmpl" }
+})
+require('lspconfig').htmx.setup({
+    filetypes = { "html", "templ", "zmpl" }
+})
 
 vim.g.zig_fmt_autosave = 0
 

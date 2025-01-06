@@ -115,6 +115,9 @@ vim.keymap.set('n', '<leader>of',
 -- obsidian new note
 vim.keymap.set('n', '<leader>on',
     function()
+        vim.ui.input({ prompt = "workspace: " }, function(input)
+            vim.cmd(string.format("ObsidianWorkspace %s", input))
+        end)
         vim.ui.input({ prompt = "title: " }, function(input)
             vim.cmd(string.format("ObsidianNew %s", input))
         end)
@@ -127,6 +130,13 @@ vim.keymap.set('n', '<leader>od',
         vim.cmd('ObsidianToday')
     end,
     { desc = "daily notes" })
+
+-- obsidian search notes
+vim.keymap.set('n', '<leader>os',
+    function()
+        vim.cmd('ObsidianSearch')
+    end,
+    { desc = "search notes" })
 
 -- buffer movement
 vim.keymap.set({ 'n', 'v' }, '<leader><TAB>',
@@ -317,6 +327,8 @@ vim.keymap.set('n', '<leader>dq', '<cmd>Trouble qflist toggle<cr>',
 
 -- format
 vim.keymap.set("n", "<leader>=", vim.lsp.buf.format, { desc = 'format buffer' })
+vim.keymap.set("n", "<leader>-", require("conform").format, { desc = 'format buffer' }) -- test
+vim.keymap.set("v", "<leader>-", require("conform").format, { desc = 'format buffer' }) -- test
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
