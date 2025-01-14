@@ -23,5 +23,4 @@
 #### todo
 - move from oh-my-zsh
 - clickable dwm-blocks
-- look into lazygit
 - move librewolf css into repo
