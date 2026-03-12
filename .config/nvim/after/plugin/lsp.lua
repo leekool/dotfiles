@@ -30,11 +30,21 @@ lsp.configure('zls', {
             operator_completions = true,
             include_at_in_builtins = true,
             max_detail_length = 1048576,
-            -- build_runner_path = 
+            -- build_runner_path =
         }
     }
 })
 
+lsp.configure('svelte', {
+    on_attach = function(client)
+        vim.api.nvim_create_autocmd("BufWritePost", {
+            pattern = { "*.js", "*.ts" },
+            callback = function(ctx)
+                client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.file })
+            end,
+        })
+    end,
+})
 
 local cmp = require('cmp')
 cmp.setup({

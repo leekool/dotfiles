@@ -53,6 +53,7 @@ alias cls="clear && eza --long --no-user --git --icons"
 alias zbr="zig build run"
 alias jz="~/clone/jetzig/cli/zig-out/bin/jetzig"
 alias cdc="cd ~/clone"
+alias c="claude"
 
 eval "$(starship init zsh)"
 

@@ -44,7 +44,7 @@ void
 shiftview(const Arg *arg)
 {
 	Arg shifted = { .ui = selmon->tagset[selmon->seltags] };
-
+	shifted.ui = shifted.ui & -shifted.ui; /* isolate lowest set bit */
 	shift(&shifted.ui, arg->i);
 	view(&shifted);
 }

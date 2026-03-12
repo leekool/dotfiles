@@ -187,6 +187,16 @@ require("lazy").setup({
     },
 
     {
+        "cordx56/rustowl",
+        version = "*",
+        build = "cargo binstall rustowl",
+        lazy = false,
+        opts = {
+            highlight_style = "underline",
+        },
+    },
+
+    {
         "yetone/avante.nvim",
         event = "VeryLazy",
         lazy = false,

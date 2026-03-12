@@ -332,6 +332,13 @@ vim.keymap.set('n', '<leader>dq', '<cmd>Trouble qflist toggle<cr>',
     { silent = true, noremap = true, desc = 'quickfix list' }
 )
 
+-- rustowl
+vim.keymap.set('n', '<leader>r',
+    function()
+        vim.cmd('Rustowl toggle')
+    end,
+    { desc = 'toggle rustowl' })
+
 -- format
 vim.keymap.set("n", "<leader>=", vim.lsp.buf.format, { desc = 'format buffer' })
 vim.keymap.set("n", "<leader>-", require("conform").format, { desc = 'format buffer' }) -- test
