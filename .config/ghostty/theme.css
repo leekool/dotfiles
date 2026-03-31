@@ -1,0 +1,79 @@
+windowhandle {
+  background: #1e1e26;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+tabbar * {
+  min-height: 0;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  font-family: monospace;
+}
+
+tabbar,
+tabbar:backdrop,
+tabbar tabbox {
+  margin: 1px 0 0 0;
+  padding: 0;
+  color: #bac2de;
+  background: transparent;
+}
+
+tabbar tabbox tab,
+tabbar tabbox tab:backdrop {
+  margin: 2px 0 0 0;
+  padding: 0 2px;
+  background: #2b203a;
+  color: #bac2de;
+  border-radius: 2px;
+  border: none;
+  box-shadow: none;
+}
+
+tabbar tabbox tab:hover,
+tabbar tabbox tab:hover:backdrop {
+  background: #363646;
+}
+
+tabbar tabbox tab:selected,
+tabbar tabbox tab:selected:backdrop {
+  background: #121217;
+  color: #bac2de;
+}
+
+tabbar tabbox tab:not(:selected) {
+  background: transparent;
+}
+
+tabbar tabbox tab label,
+tabbar tabbox tab:selected label {
+  color: #bac2de;
+  font-size: 13px;
+  padding-bottom: 1px;
+  font-weight: 500;
+}
+
+tabbar tabbox tab button {
+  min-width: 10px;
+  padding: 2px;
+  margin-right: -2px;
+}
+
+tabbar tabbox tab button,
+tabbar tabbox tab:selected button {
+  color: transparent;
+  background: transparent;
+}
+
+tabbar tabbox tab:selected:hover button {
+  color: #bac2de;
+  background: transparent;
+}
+
+tabbar tabbox separator {
+  background: transparent;
+  min-width: 0;
+}
