@@ -23,26 +23,6 @@ ShellRoot {
         Component.onCompleted: running = true
     }
 
-    Connections {
-        target: Greetd
-
-        function onAuthMessage(message, error, responseRequired, echoResponse) {
-            ui.authStatusText = "Locked"
-        }
-
-        function onReadyToLaunch() {
-            Greetd.launch(["start-hyprland"], ["XDG_SESSION_TYPE=wayland", "XDG_CURRENT_DESKTOP=Hyprland"], true)
-        }
-
-        function onAuthFailure(message) {
-            ui.authFailed = true
-            ui.authAuthenticating = false
-            ui.authStatusText = "Access Denied"
-            Greetd.cancelSession()
-            Greetd.createSession(root.resolvedUser)
-        }
-    }
-
     Process { id: suspendProcess; command: ["systemctl", "suspend"] }
     Process { id: poweroffProcess; command: ["systemctl", "poweroff"] }
     Process { id: rebootProcess;  command: ["systemctl", "reboot"] }
@@ -52,6 +32,38 @@ ShellRoot {
         visible: true
         width: screen ? screen.width : 1920
         height: screen ? screen.height : 1080
+
+        // After auth_error, Quickshell C++ sends cancel_session even though greetd
+        // already terminated the session. greetd responds with success. If createSession
+        // is called too early (Qt.callLater), mState=Authenticating when that success
+        // arrives → premature readyToLaunch → start_session rejected → mState reset →
+        // subsequent correct password hits 'unexpected' handler → hang.
+        // Timer delay ensures the cancel_session success is fully processed first.
+        Timer {
+            id: restartSessionTimer
+            interval: 200
+            repeat: false
+            onTriggered: Greetd.createSession(root.resolvedUser)
+        }
+
+        Connections {
+            target: Greetd
+
+            function onAuthMessage(message, error, responseRequired, echoResponse) {
+                ui.authStatusText = "Locked"
+            }
+
+            function onReadyToLaunch() {
+                Greetd.launch(["start-hyprland"], ["XDG_SESSION_TYPE=wayland", "XDG_CURRENT_DESKTOP=Hyprland"], true)
+            }
+
+            function onAuthFailure(message) {
+                ui.authFailed = true
+                ui.authAuthenticating = false
+                ui.authStatusText = "Access Denied"
+                restartSessionTimer.restart()
+            }
+        }
 
         LockUI {
             id: ui
