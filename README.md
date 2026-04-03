@@ -12,6 +12,7 @@
 | prompt | starship |
 | browser | librewolf |
 | launcher | fuzzel |
+| wallpaper | awww |
 
 ## structure
 
