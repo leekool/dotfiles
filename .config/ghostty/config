@@ -17,6 +17,7 @@ window-show-tab-bar = auto
 gtk-single-instance = false
 
 confirm-close-surface = false
+focus-follows-mouse = true
 
 gtk-titlebar = true
 gtk-titlebar-style = native
