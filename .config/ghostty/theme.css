@@ -11,6 +11,12 @@ taboverview > widget > toolbarview > revealer > windowhandle:backdrop {
   background: #1f1f28;
 }
 
+/* remove border between tabbar and terminal contents when scrollable and not scrolled to top */
+undershoot.top {
+  background: none;
+  box-shadow: none;
+}
+
 tabbar * {
   min-height: 0;
   border: none;
