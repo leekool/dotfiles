@@ -2,13 +2,16 @@ windowhandle {
   border: none;
   outline: none;
   box-shadow: none;
-  opacity: 0.92;
+}
+
+taboverview>widget>toolbarview>revealer>windowhandle {
+  background: rgba(31, 31, 40, 0.92);
 }
 
 /* stop tab bar fading out when ghostty out of focus */
-taboverview > widget > toolbarview > revealer > windowhandle:backdrop {
+taboverview>widget>toolbarview>revealer>windowhandle:backdrop {
   filter: opacity(1);
-  background: #1f1f28;
+  background: rgba(31, 31, 40, 0.92);
 }
 
 /* remove border between tabbar and terminal contents when scrollable and not scrolled to top */
@@ -70,7 +73,6 @@ tabbar tabbox tab:selected label {
 tabbar tabbox tab button {
   min-width: 10px;
   padding: 2px;
-  margin-right: -2px;
 }
 
 tabbar tabbox tab button,
