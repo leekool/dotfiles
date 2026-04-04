@@ -9,7 +9,6 @@ ShellRoot {
 
     property string resolvedUser: ""
 
-    // Find first real user (UID >= 1000)
     Process {
         id: userPoller
         command: ["bash", "-c", "awk -F: '$3 >= 1000 && $3 < 65534 {print $1; exit}' /etc/passwd"]

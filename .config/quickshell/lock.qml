@@ -24,7 +24,6 @@ ShellRoot {
 
         WlSessionLockSurface {
 
-            // pam completion handled here where 'ui' is in scope
             Connections {
                 target: pam
                 function onCompleted(result) {

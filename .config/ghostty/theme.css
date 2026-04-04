@@ -1,8 +1,14 @@
 windowhandle {
-  background: #1e1e26;
   border: none;
   outline: none;
   box-shadow: none;
+  opacity: 0.92;
+}
+
+/* stop tab bar fading out when ghostty out of focus */
+taboverview > widget > toolbarview > revealer > windowhandle:backdrop {
+  filter: opacity(1);
+  background: #1f1f28;
 }
 
 tabbar * {
@@ -19,7 +25,6 @@ tabbar tabbox {
   margin: 1px 0 0 0;
   padding: 0;
   color: #bac2de;
-  background: transparent;
 }
 
 tabbar tabbox tab,

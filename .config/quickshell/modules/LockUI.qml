@@ -243,7 +243,7 @@ Item {
 
                         Text {
                             anchors.centerIn: parent
-                            text: lockUIRoot.authFailed ? "󰌾" : (lockUIRoot.authAuthenticating ? "󰌿" : "󰌾")
+                            text: lockUIRoot.authAuthenticating ? "󰌿" : "󰌾"
                             font.family: "JetBrainsMono Nerd Font"
                             font.pixelSize: 18
                             color: lockUIRoot.authFailed
