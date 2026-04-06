@@ -44,6 +44,7 @@ alias ff="librewolf > /dev/null 2>&1 &> /dev/null 2>&1 & disown"
 alias discord="discord --no-sandbox > /dev/null 2>&1 &> /dev/null 2>&1 & disown"
 alias fonts="fc-list"
 alias sshmount="sshfs root@imre.al:/var/www ~/imre.al"
+ssh() { TERM=xterm-256color command ssh "$@" }
 alias mail="mailsync > /dev/null 2>&1 &> /dev/null 2>&1 & bash -c neomutt"
 alias music="ncmpcpp -q"
 alias ls="eza --long --no-user --git --icons"

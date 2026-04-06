@@ -52,7 +52,7 @@ ShellRoot {
 
                 Tray {}
                 Internet {}
-                Volume {}
+                Volume { screen: modelData }
                 Memory {}
                 Cpu {}
                 Clock {}
