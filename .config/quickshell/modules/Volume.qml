@@ -140,7 +140,7 @@ Item {
         }
     }
 
-    // ── Backdrop (catches outside clicks to close popup) ─────────────────────
+    // ── Popup + backdrop (single window) ────────────────────────────────────
 
     PanelWindow {
         screen: root.screen ?? Quickshell.screens[0]
@@ -155,47 +155,31 @@ Item {
             right:  true
         }
 
+        // Outside click closes the popup
         MouseArea {
             anchors.fill: parent
             onClicked: root.popupOpen = false
         }
-    }
-
-    // ── Popup ────────────────────────────────────────────────────────────────
-
-    PanelWindow {
-        id: popup
-        screen: root.screen ?? Quickshell.screens[0]
-        visible: root.popupOpen && root.screen !== null
-        exclusionMode: ExclusionMode.Ignore
-
-        anchors {
-            top:   true
-            right: true
-        }
-
-        margins {
-            top:   Theme.barHeight + 10
-            right: {
-                let _track = root.x
-                if (!root.screen) return 10
-                let centerX = root.mapToGlobal(root.width / 2, 0).x
-                return (root.screen.x + root.screen.width) - (centerX + 140)
-            }
-        }
-
-        width: 280
-        height: popupBg.height
-        color: "transparent"
 
         Rectangle {
             id: popupBg
             width: 280
             height: popupCol.implicitHeight + 28
+            y: Theme.barHeight + 10
+            x: {
+                let _track = root.x
+                if (!root.screen) return parent.width - 290
+                let globalCenterX = root.mapToGlobal(root.width / 2, 0).x
+                let localCenterX  = globalCenterX - (root.screen.x || 0)
+                return Math.max(0, Math.min(parent.width - width, localCenterX - 140))
+            }
             color: Theme.bg
             radius: 8
             border.color: Theme.border
             border.width: 1
+
+            // Absorb clicks so they don't reach the backdrop MouseArea
+            MouseArea { anchors.fill: parent }
 
             Column {
                 id: popupCol
