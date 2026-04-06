@@ -175,8 +175,13 @@ Item {
         }
 
         margins {
-            top: Theme.barHeight + 10
-            right: 10
+            top:   Theme.barHeight + 10
+            right: {
+                let _track = root.x
+                if (!root.screen) return 10
+                let centerX = root.mapToGlobal(root.width / 2, 0).x
+                return (root.screen.x + root.screen.width) - (centerX + 140)
+            }
         }
 
         width: 280
