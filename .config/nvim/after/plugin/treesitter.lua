@@ -1,6 +1,8 @@
+vim.opt.rtp:prepend(vim.fn.stdpath("data") .. "/site")
+
 require('nvim-treesitter').setup {
     -- A list of parser names, or "all" (the five listed parsers should always be installed)
-    ensure_installed = { "javascript", "typescript", "lua", "vim", "vimdoc", "query", "scss", "svelte" },
+    ensure_installed = { "javascript", "typescript", "lua", "vim", "vimdoc", "query", "scss", "svelte", "html", "css" },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
     sync_install = false,
@@ -28,3 +30,11 @@ require('nvim-treesitter').setup {
         -- [options]
     },
 }
+
+vim.schedule(function()
+    for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+        if vim.api.nvim_buf_is_loaded(buf) and vim.bo[buf].filetype ~= "" then
+            vim.treesitter.start(buf)
+        end
+    end
+end)
