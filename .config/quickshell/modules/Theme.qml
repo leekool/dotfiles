@@ -5,6 +5,7 @@ QtObject {
     // Font
     readonly property string fontFamily: "JetBrainsMono Nerd Font"
     readonly property int fontSize: 13
+    readonly property real letterSpacing: 0
     readonly property bool antialiasing: true
 
     // Colors — matched to librewolf/hyprland palette

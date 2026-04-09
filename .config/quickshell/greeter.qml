@@ -76,5 +76,17 @@ ShellRoot {
                 else if (action === "poweroff") poweroffProcess.running = true
             }
         }
+
+        Process {
+            command: ["bash", "-c", "find /home/*/.cache/awww -maxdepth 2 -type f 2>/dev/null | head -n1 | xargs cat 2>/dev/null | awk '{print $NF}'"]
+            stdout: StdioCollector {
+                onStreamFinished: {
+                    let path = this.text.trim()
+                    if (path !== "")
+                        ui.wallpaperPath = path.startsWith("file://") ? path : "file://" + path
+                }
+            }
+            Component.onCompleted: running = true
+        }
     }
 }

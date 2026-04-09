@@ -34,6 +34,7 @@ RowLayout {
                 color: isActive ? Theme.fgActive : Theme.fg
                 font.family: Theme.fontFamily
                 font.pixelSize: Theme.fontSize
+                font.letterSpacing: Theme.letterSpacing
                 antialiasing: Theme.antialiasing
             }
 

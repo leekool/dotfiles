@@ -38,6 +38,7 @@ Item {
         color: Theme.fgActive
         font.family: Theme.fontFamily
         font.pixelSize: Theme.fontSize
+        font.letterSpacing: Theme.letterSpacing
         font.weight: Theme.fontWeight
         antialiasing: Theme.antialiasing
         font.kerning: Theme.kerning
