@@ -10,6 +10,7 @@ M.npm_servers = {
     "svelte",
     "cssls",
     "ts_ls",
+    "biome",
 }
 
 function M.ensure_installed()

@@ -68,11 +68,16 @@ if servers.has_npm_servers() then
     vim.lsp.config("cssls", with_defaults())
     vim.lsp.enable("cssls")
 
-    vim.lsp.config("ts_ls", with_defaults())
+    vim.lsp.config("ts_ls", with_defaults({
+        on_attach = function(client, _)
+            client.server_capabilities.documentFormattingProvider = false
+        end,
+    }))
     vim.lsp.enable("ts_ls")
 
     vim.lsp.config("svelte", with_defaults({
         on_attach = function(client, _)
+            client.server_capabilities.documentFormattingProvider = false
             vim.api.nvim_create_autocmd("BufWritePost", {
                 pattern = { "*.js", "*.ts" },
                 callback = function(ctx)
@@ -82,4 +87,9 @@ if servers.has_npm_servers() then
         end,
     }))
     vim.lsp.enable("svelte")
+
+    vim.lsp.config("biome", with_defaults({
+        filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "svelte", "json", "jsonc", "css" },
+    }))
+    vim.lsp.enable("biome")
 end
