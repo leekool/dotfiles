@@ -78,7 +78,7 @@ ShellRoot {
         }
 
         Process {
-            command: ["bash", "-c", "find /home/*/.cache/awww -maxdepth 2 -type f 2>/dev/null | head -n1 | xargs cat 2>/dev/null | awk '{print $NF}'"]
+            command: ["bash", "-c", "cat /tmp/current-wallpaper 2>/dev/null"]
             stdout: StdioCollector {
                 onStreamFinished: {
                     let path = this.text.trim()

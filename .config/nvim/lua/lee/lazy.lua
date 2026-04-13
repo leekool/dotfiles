@@ -14,13 +14,27 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     {
         "nvim-treesitter/nvim-treesitter",
-        compilers = { "clang", "gcc" },
         build = ":TSUpdate",
         lazy = false,
         dependencies = {
             { "nvim-treesitter/nvim-treesitter-textobjects" },
             { "romgrk/nvim-treesitter-context" },
         },
+        config = function()
+            vim.opt.rtp:prepend(vim.fn.stdpath("data") .. "/site")
+            require('nvim-treesitter').setup {
+                ensure_installed = { "javascript", "typescript", "lua", "vim", "vimdoc", "query", "scss", "svelte", "html", "css", "go" },
+                sync_install = false,
+                compilers = { "clang", "gcc" },
+                highlight = {
+                    enable = true,
+                    additional_vim_regex_highlighting = false,
+                },
+                matchup = {
+                    enable = true,
+                },
+            }
+        end,
     },
     "mfussenegger/nvim-dap",
     "nvim-neotest/nvim-nio",

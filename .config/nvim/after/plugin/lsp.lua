@@ -56,6 +56,9 @@ vim.lsp.enable("lua_ls")
 vim.lsp.config("marksman", with_defaults())
 vim.lsp.enable("marksman")
 
+vim.lsp.config("gopls", with_defaults())
+vim.lsp.enable("gopls")
+
 if servers.has_npm_servers() then
     vim.lsp.config("html", with_defaults({
         filetypes = { "html", "templ" },
