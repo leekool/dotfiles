@@ -53,6 +53,7 @@ ShellRoot {
             }
 
             function onReadyToLaunch() {
+                win.visible = false
                 Greetd.launch(["start-hyprland"], ["XDG_SESSION_TYPE=wayland", "XDG_CURRENT_DESKTOP=Hyprland"], true)
             }
 
@@ -68,6 +69,7 @@ ShellRoot {
             id: ui
             anchors.fill: parent
             username: root.resolvedUser
+            wallpaperPath: Qt.resolvedUrl("wallpapers/test_wallpaper.png")
 
             onPasswordSubmitted: (pw) => { Greetd.respond(pw) }
             onPowerAction: (action) => {
@@ -75,18 +77,6 @@ ShellRoot {
                 else if (action === "reboot")   rebootProcess.running = true
                 else if (action === "poweroff") poweroffProcess.running = true
             }
-        }
-
-        Process {
-            command: ["bash", "-c", "cat /tmp/current-wallpaper 2>/dev/null"]
-            stdout: StdioCollector {
-                onStreamFinished: {
-                    let path = this.text.trim()
-                    if (path !== "")
-                        ui.wallpaperPath = path.startsWith("file://") ? path : "file://" + path
-                }
-            }
-            Component.onCompleted: running = true
         }
     }
 }
