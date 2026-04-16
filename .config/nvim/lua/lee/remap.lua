@@ -261,7 +261,9 @@ vim.keymap.set('n', '<leader>!', '<cmd>Trouble diagnostics toggle filter.buf=0<c
 )
 
 -- format
-vim.keymap.set("n", "<leader>=", vim.lsp.buf.format, { desc = 'format buffer' })
+vim.keymap.set("n", "<leader>=", function()
+    require("conform").format({ async = true, lsp_fallback = true })
+end, { desc = 'format buffer' })
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")

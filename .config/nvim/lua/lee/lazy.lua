@@ -44,6 +44,23 @@ require("lazy").setup({
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
 
+    {
+        "stevearc/conform.nvim",
+        config = function()
+            require("conform").setup({
+                formatters_by_ft = {
+                    javascript      = { "biome" },
+                    typescript      = { "biome" },
+                    javascriptreact = { "biome" },
+                    typescriptreact = { "biome" },
+                    svelte          = { "biome" },
+                    json            = { "biome" },
+                    jsonc           = { "biome" },
+                },
+            })
+        end,
+    },
+
     { "onsails/lspkind.nvim" },
 
     -- autocompletion

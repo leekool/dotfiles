@@ -90,6 +90,9 @@ if servers.has_npm_servers() then
 
     vim.lsp.config("biome", with_defaults({
         filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "svelte", "json", "jsonc", "css" },
+        on_attach = function(client, _)
+            client.server_capabilities.documentFormattingProvider = false
+        end,
     }))
     vim.lsp.enable("biome")
 end
