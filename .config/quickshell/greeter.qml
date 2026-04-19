@@ -53,7 +53,6 @@ ShellRoot {
             }
 
             function onReadyToLaunch() {
-                win.visible = false
                 Greetd.launch(["start-hyprland"], ["XDG_SESSION_TYPE=wayland", "XDG_CURRENT_DESKTOP=Hyprland"], true)
             }
 
@@ -69,7 +68,7 @@ ShellRoot {
             id: ui
             anchors.fill: parent
             username: root.resolvedUser
-            wallpaperPath: Qt.resolvedUrl("wallpapers/test_wallpaper.png")
+            wallpaperPath: "file:///home/lee/.config/quickshell/wallpapers/test_wallpaper.png"
 
             onPasswordSubmitted: (pw) => { Greetd.respond(pw) }
             onPowerAction: (action) => {
