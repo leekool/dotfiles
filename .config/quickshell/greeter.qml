@@ -53,7 +53,7 @@ ShellRoot {
             }
 
             function onReadyToLaunch() {
-                Greetd.launch(["start-hyprland"], ["XDG_SESSION_TYPE=wayland", "XDG_CURRENT_DESKTOP=Hyprland"], true)
+                Greetd.launch(["start-hyprland-wrapper.sh"], ["XDG_SESSION_TYPE=wayland", "XDG_CURRENT_DESKTOP=Hyprland"], true)
             }
 
             function onAuthFailure(message) {
