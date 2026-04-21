@@ -19,13 +19,13 @@ esac
 case "$direction" in
   left)
     if [ "$current" -le 1 ]; then
-      target=6
+      target=4
     else
       target=$((current - 1))
     fi
     ;;
   right)
-    if [ "$current" -ge 6 ]; then
+    if [ "$current" -ge 4 ]; then
       target=1
     else
       target=$((current + 1))

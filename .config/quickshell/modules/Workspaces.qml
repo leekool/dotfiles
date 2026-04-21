@@ -7,34 +7,32 @@ RowLayout {
     spacing: 0
 
     Repeater {
-        model: [1, 2, 3, 4, 5, 6]
+        model: [1, 2, 3, 4]
 
         Rectangle {
             required property int modelData
             property int wsId: modelData
             property bool isActive: Hyprland.focusedWorkspace !== null && Hyprland.focusedWorkspace.id === wsId
             property bool hovered: false
-
-            Layout.preferredWidth: wsLabel.implicitWidth + 6
-            height: 20
-            color: isActive ? Theme.activeBg : hovered ? Theme.hoverBg : Theme.bg
-
-            Rectangle {
-                anchors.bottom: parent.bottom
-                anchors.left: parent.left
-                anchors.right: parent.right
-                height: 2
-                color: isActive ? Theme.border : "transparent"
+            property var wsObject: {
+                for (let i = 0; i < Hyprland.workspaces.count; i++) {
+                    const ws = Hyprland.workspaces.get(i);
+                    if (ws.id === wsId) return ws;
+                }
+                return null;
             }
+            property bool hasWindows: wsObject !== null && wsObject.windowCount > 0
+
+            Layout.preferredWidth: 24
+            height: 20
+            color: hovered ? Theme.hoverBg : Theme.bg
 
             Text {
-                id: wsLabel
                 anchors.centerIn: parent
-                text: ["I", "II", "III", "IV", "V", "VI"][wsId - 1]
-                color: isActive ? Theme.fgActive : Theme.fg
+                text: isActive || hasWindows ? "●" : "○"
+                color: isActive ? Theme.fgActive : hasWindows ? Theme.fg : "#444455"
                 font.family: Theme.fontFamily
-                font.pixelSize: Theme.fontSize
-                font.letterSpacing: Theme.letterSpacing
+                font.pixelSize: 10
                 antialiasing: Theme.antialiasing
             }
 
