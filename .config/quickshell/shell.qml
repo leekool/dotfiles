@@ -5,6 +5,8 @@ import Quickshell.Hyprland
 import "modules"
 
 ShellRoot {
+    Notifications {}
+
     Variants {
         model: Quickshell.screens
 
