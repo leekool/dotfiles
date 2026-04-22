@@ -15,13 +15,12 @@ RowLayout {
             property bool isActive: Hyprland.focusedWorkspace !== null && Hyprland.focusedWorkspace.id === wsId
             property bool hovered: false
             property var wsObject: {
-                for (let i = 0; i < Hyprland.workspaces.count; i++) {
-                    const ws = Hyprland.workspaces.get(i);
+                for (const ws of Hyprland.workspaces.values) {
                     if (ws.id === wsId) return ws;
                 }
                 return null;
             }
-            property bool hasWindows: wsObject !== null && wsObject.windowCount > 0
+            property bool hasWindows: wsObject !== null && wsObject.toplevels.values.length > 0
 
             Layout.preferredWidth: 24
             height: 20
@@ -30,7 +29,7 @@ RowLayout {
             Text {
                 anchors.centerIn: parent
                 text: isActive || hasWindows ? "●" : "○"
-                color: isActive ? Theme.fgActive : hasWindows ? Theme.fg : "#444455"
+                color: isActive ? Theme.fgActive : hasWindows ? Theme.activeBg : "#444455"
                 font.family: Theme.fontFamily
                 font.pixelSize: 10
                 antialiasing: Theme.antialiasing
