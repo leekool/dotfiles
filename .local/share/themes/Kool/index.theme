@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Kool
+Comment=Custom dark theme matching Kool color palette
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Kool
+MetacityTheme=Kool
+IconTheme=Adwaita
+CursorTheme=Adwaita
+ButtonLayout=:close

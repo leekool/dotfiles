@@ -24,8 +24,8 @@ export BROWSER="librewolf"
 export GOPATH="$HOME/clone/go_projects/"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 
-export GTK_THEME=Adwaita:dark
-export GTK2_RC_FILES=/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc
+export GTK_THEME=Kool
+# export GTK2_RC_FILES=/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc
 export QT_STYLE_OVERRIDE=adwaita-dark
 
 alias vim="nvim"

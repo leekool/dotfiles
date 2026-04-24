@@ -1,0 +1,31 @@
+/* Kool — libadwaita color overrides
+ * bg:#1e1e26  fg:#bbbbbb  fgActive:#efefef
+ * activeBg:#786FA6  hoverBg:#2a2a35  border:#3d3d3d
+ */
+
+@define-color window_bg_color           #1e1e26;
+@define-color window_fg_color           #efefef;
+@define-color view_bg_color             #1e1e26;
+@define-color view_fg_color             #efefef;
+@define-color accent_color              #786FA6;
+@define-color accent_bg_color           #786FA6;
+@define-color accent_fg_color           #efefef;
+@define-color headerbar_bg_color        #1e1e26;
+@define-color headerbar_fg_color        #efefef;
+@define-color headerbar_border_color    #3d3d3d;
+@define-color headerbar_backdrop_color  #1a1a21;
+@define-color headerbar_shade_color     rgba(0,0,0,0.25);
+@define-color sidebar_bg_color          #1a1a21;
+@define-color sidebar_fg_color          #bbbbbb;
+@define-color sidebar_border_color      #3d3d3d;
+@define-color card_bg_color             #252530;
+@define-color card_fg_color             #efefef;
+@define-color dialog_bg_color           #252530;
+@define-color dialog_fg_color           #efefef;
+@define-color popover_bg_color          #252530;
+@define-color popover_fg_color          #efefef;
+@define-color shade_color               rgba(0,0,0,0.25);
+@define-color scrollbar_outline_color   rgba(0,0,0,0.5);
+@define-color error_color               #cf6679;
+@define-color warning_color             #e5a050;
+@define-color success_color             #84a867;

@@ -1,0 +1,498 @@
+/* Kool GTK4 standalone dark theme
+ * GTK4 4.14+ removed built-in Adwaita, so this must be self-contained.
+ * All interactive widgets need explicit min-sizes or they collapse.
+ * bg:#1e1e26  fg:#efefef  accent:#786FA6  surface:#2a2a35  border:#3d3d3d
+ */
+
+@define-color window_bg_color           #1e1e26;
+@define-color window_fg_color           #efefef;
+@define-color view_bg_color             #1e1e26;
+@define-color view_fg_color             #efefef;
+@define-color accent_color              #786FA6;
+@define-color accent_bg_color           #786FA6;
+@define-color accent_fg_color           #efefef;
+@define-color headerbar_bg_color        #1e1e26;
+@define-color headerbar_fg_color        #efefef;
+@define-color headerbar_border_color    #3d3d3d;
+@define-color sidebar_bg_color          #1a1a21;
+@define-color sidebar_fg_color          #bbbbbb;
+@define-color card_bg_color             #252530;
+@define-color popover_bg_color          #252530;
+@define-color popover_fg_color          #efefef;
+@define-color theme_bg_color            #1e1e26;
+@define-color theme_fg_color            #efefef;
+@define-color theme_base_color          #1e1e26;
+@define-color theme_text_color          #efefef;
+@define-color theme_selected_bg_color   #786FA6;
+@define-color theme_selected_fg_color   #efefef;
+@define-color error_color               #cf6679;
+@define-color warning_color             #e5a050;
+@define-color success_color             #84a867;
+
+* {
+    -gtk-icon-style: regular;
+}
+
+/* ── Window ──────────────────────────────────────────────────────────────── */
+window, .background {
+    background-color: #1e1e26;
+    color: #efefef;
+}
+
+/* ── Header bar ──────────────────────────────────────────────────────────── */
+headerbar {
+    min-height: 46px;
+    padding: 0 6px;
+    background-color: #1e1e26;
+    color: #efefef;
+    border-bottom: 1px solid #3d3d3d;
+    box-shadow: none;
+}
+
+headerbar:backdrop {
+    background-color: #1a1a21;
+    color: #888899;
+    border-bottom-color: #2e2e3a;
+}
+
+headerbar .title {
+    font-weight: bold;
+}
+
+/* ── Buttons ─────────────────────────────────────────────────────────────── */
+button {
+    min-height: 24px;
+    padding: 4px 10px;
+    background-color: #2a2a35;
+    color: #efefef;
+    border: 1px solid #3d3d3d;
+    border-radius: 6px;
+}
+
+button:hover {
+    background-color: #32323f;
+    border-color: #786FA6;
+}
+
+button:active {
+    background-color: #786FA6;
+    color: #efefef;
+    border-color: #786FA6;
+}
+
+button:checked {
+    background-color: #786FA6;
+    color: #efefef;
+    border-color: #786FA6;
+}
+
+button:disabled {
+    background-color: #222228;
+    color: #555566;
+    border-color: #2e2e3a;
+}
+
+button.suggested-action {
+    background-color: #786FA6;
+    color: #efefef;
+    border-color: #786FA6;
+}
+
+button.destructive-action {
+    background-color: #6b2a34;
+    color: #efefef;
+    border-color: #8b3544;
+}
+
+button.flat, button.flat:hover {
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+}
+
+button.flat:hover {
+    background-color: rgba(120, 111, 166, 0.15);
+}
+
+/* ── Text entries ────────────────────────────────────────────────────────── */
+entry, spinbutton {
+    min-height: 28px;
+    padding: 4px 8px;
+    background-color: #252530;
+    color: #efefef;
+    border: 1px solid #3d3d3d;
+    border-radius: 6px;
+    caret-color: #efefef;
+}
+
+entry:focus, spinbutton:focus {
+    border-color: #786FA6;
+    outline: none;
+}
+
+entry:disabled, spinbutton:disabled {
+    background-color: #1e1e26;
+    color: #555566;
+}
+
+entry selection, spinbutton selection {
+    background-color: #786FA6;
+    color: #efefef;
+}
+
+/* ── Checkboxes ──────────────────────────────────────────────────────────── */
+checkbutton {
+    color: #efefef;
+}
+
+checkbutton check {
+    min-width: 16px;
+    min-height: 16px;
+    background-color: #252530;
+    border: 1px solid #3d3d3d;
+    border-radius: 4px;
+}
+
+checkbutton check:checked {
+    background-color: #786FA6;
+    border-color: #786FA6;
+    color: #efefef;
+}
+
+checkbutton check:disabled {
+    background-color: #1e1e26;
+    border-color: #2e2e3a;
+}
+
+/* ── Radio buttons ───────────────────────────────────────────────────────── */
+radiobutton {
+    color: #efefef;
+}
+
+radiobutton radio {
+    min-width: 16px;
+    min-height: 16px;
+    background-color: #252530;
+    border: 1px solid #3d3d3d;
+    border-radius: 50%;
+}
+
+radiobutton radio:checked {
+    background-color: #786FA6;
+    border-color: #786FA6;
+}
+
+/* ── Switches ────────────────────────────────────────────────────────────── */
+switch {
+    min-width: 56px;
+    min-height: 28px;
+    background-color: #2a2a35;
+    border: 1px solid #3d3d3d;
+    border-radius: 14px;
+}
+
+switch:checked {
+    background-color: #786FA6;
+    border-color: #786FA6;
+}
+
+switch slider {
+    min-width: 24px;
+    min-height: 24px;
+    background-color: #efefef;
+    border-radius: 50%;
+    margin: 1px;
+}
+
+/* ── Scale (volume sliders etc) ──────────────────────────────────────────── */
+scale {
+    padding: 8px 0;
+    color: #efefef;
+}
+
+scale trough {
+    min-height: 4px;
+    min-width: 4px;
+    background-color: #2a2a35;
+    border-radius: 2px;
+    border: 1px solid #3d3d3d;
+}
+
+scale trough highlight {
+    background-color: #786FA6;
+    border-radius: 2px;
+    border: none;
+}
+
+scale trough slider {
+    min-width: 18px;
+    min-height: 18px;
+    background-color: #786FA6;
+    border: none;
+    border-radius: 50%;
+    margin: -8px;
+}
+
+scale trough slider:hover {
+    background-color: #9088bc;
+    min-width: 20px;
+    min-height: 20px;
+}
+
+scale trough slider:active {
+    background-color: #5a5480;
+}
+
+scale marks indicator {
+    min-height: 6px;
+    min-width: 1px;
+    background-color: #3d3d3d;
+}
+
+/* ── Progress bars ───────────────────────────────────────────────────────── */
+progressbar {
+    color: #efefef;
+}
+
+progressbar trough {
+    min-height: 6px;
+    background-color: #2a2a35;
+    border-radius: 3px;
+    border: 1px solid #3d3d3d;
+}
+
+progressbar progress {
+    background-color: #786FA6;
+    border-radius: 3px;
+    border: none;
+}
+
+/* ── Level bars ──────────────────────────────────────────────────────────── */
+levelbar trough {
+    min-height: 6px;
+    background-color: #2a2a35;
+    border-radius: 3px;
+    border: 1px solid #3d3d3d;
+}
+
+levelbar block.filled {
+    background-color: #786FA6;
+    border-radius: 3px;
+    border: none;
+}
+
+levelbar block.empty {
+    background-color: #2a2a35;
+}
+
+/* ── Scrollbars ──────────────────────────────────────────────────────────── */
+scrollbar {
+    background-color: transparent;
+}
+
+scrollbar trough {
+    background-color: transparent;
+    min-width: 6px;
+    min-height: 6px;
+}
+
+scrollbar slider {
+    background-color: #3d3d3d;
+    border-radius: 3px;
+    min-width: 6px;
+    min-height: 6px;
+    margin: 2px;
+}
+
+scrollbar slider:hover {
+    background-color: #555566;
+}
+
+scrollbar slider:active {
+    background-color: #786FA6;
+}
+
+/* ── Lists and tree views ────────────────────────────────────────────────── */
+list, listview {
+    background-color: #1e1e26;
+    color: #efefef;
+}
+
+treeview {
+    background-color: #1e1e26;
+    color: #efefef;
+}
+
+treeview header button {
+    background-color: #252530;
+    color: #bbbbbb;
+    border-bottom: 1px solid #3d3d3d;
+    border-radius: 0;
+}
+
+row {
+    min-height: 32px;
+    color: #efefef;
+}
+
+row:hover {
+    background-color: #2a2a35;
+}
+
+row:selected {
+    background-color: #786FA6;
+    color: #efefef;
+}
+
+/* ── Notebook / tabs ─────────────────────────────────────────────────────── */
+notebook {
+    background-color: #1e1e26;
+    color: #efefef;
+}
+
+notebook header {
+    background-color: #1a1a21;
+    border-color: #3d3d3d;
+}
+
+notebook header tabs {
+    margin: 0;
+}
+
+notebook tab {
+    min-height: 26px;
+    min-width: 40px;
+    padding: 4px 12px;
+    background-color: transparent;
+    color: #bbbbbb;
+    border: none;
+    border-radius: 0;
+}
+
+notebook tab:checked {
+    background-color: #1e1e26;
+    color: #efefef;
+    border-bottom: 2px solid #786FA6;
+}
+
+notebook tab:hover:not(:checked) {
+    background-color: #2a2a35;
+    color: #efefef;
+}
+
+/* ── Menus ───────────────────────────────────────────────────────────────── */
+menu, .menu, .context-menu {
+    background-color: #252530;
+    color: #efefef;
+    border: 1px solid #3d3d3d;
+    border-radius: 8px;
+    padding: 4px 0;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+}
+
+menuitem {
+    min-height: 28px;
+    padding: 4px 12px;
+    color: #efefef;
+    border-radius: 4px;
+}
+
+menuitem:hover {
+    background-color: #786FA6;
+    color: #efefef;
+}
+
+menuitem:disabled {
+    color: #555566;
+}
+
+/* ── Popovers ────────────────────────────────────────────────────────────── */
+popover {
+    background-color: #252530;
+    color: #efefef;
+    border: 1px solid #3d3d3d;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+}
+
+popover contents {
+    padding: 4px;
+}
+
+/* ── Tooltips ────────────────────────────────────────────────────────────── */
+tooltip {
+    background-color: #2a2a35;
+    color: #efefef;
+    border: 1px solid #3d3d3d;
+    border-radius: 6px;
+    padding: 4px 8px;
+}
+
+/* ── Separators ──────────────────────────────────────────────────────────── */
+separator {
+    background-color: #3d3d3d;
+    min-width: 1px;
+    min-height: 1px;
+}
+
+/* ── Frames ──────────────────────────────────────────────────────────────── */
+frame > border {
+    border: 1px solid #3d3d3d;
+    border-radius: 6px;
+}
+
+/* ── Sidebars ────────────────────────────────────────────────────────────── */
+.sidebar {
+    background-color: #1a1a21;
+    color: #bbbbbb;
+}
+
+.sidebar row:selected {
+    background-color: #786FA6;
+    color: #efefef;
+}
+
+/* ── Dialogs ─────────────────────────────────────────────────────────────── */
+dialog, messagedialog {
+    background-color: #1e1e26;
+    color: #efefef;
+}
+
+/* ── Combo boxes ─────────────────────────────────────────────────────────── */
+combobox button {
+    background-color: #252530;
+    color: #efefef;
+    border: 1px solid #3d3d3d;
+}
+
+/* ── Labels ──────────────────────────────────────────────────────────────── */
+label {
+    color: #efefef;
+}
+
+label:disabled {
+    color: #555566;
+}
+
+label selection {
+    background-color: #786FA6;
+    color: #efefef;
+}
+
+/* ── Status bar ──────────────────────────────────────────────────────────── */
+statusbar {
+    background-color: #1e1e26;
+    color: #bbbbbb;
+    border-top: 1px solid #3d3d3d;
+    padding: 2px 6px;
+}
+
+/* ── Expander ────────────────────────────────────────────────────────────── */
+expander title {
+    min-height: 28px;
+    color: #efefef;
+}
+
+expander title:hover {
+    background-color: #2a2a35;
+}
