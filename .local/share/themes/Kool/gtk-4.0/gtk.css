@@ -1,8 +1,12 @@
-/* Kool GTK4 standalone dark theme
- * GTK4 4.14+ removed built-in Adwaita, so this must be self-contained.
- * All interactive widgets need explicit min-sizes or they collapse.
+/* Kool GTK4 theme
+ * Imports libadwaita CSS as base for apps that use it (full widget coverage).
+ * Falls back to standalone rules below for non-libadwaita apps (pavucontrol etc).
+ * @define-color overrides after the import win over libadwaita's own colors.
  * bg:#1e1e26  fg:#efefef  accent:#786FA6  surface:#2a2a35  border:#3d3d3d
  */
+
+/* Gracefully fails for non-libadwaita apps — just a warning, CSS still loads */
+@import url("resource:///org/gnome/Adwaita/styles/gtk.css");
 
 @define-color window_bg_color           #1e1e26;
 @define-color window_fg_color           #efefef;
@@ -339,9 +343,28 @@ row:hover {
     background-color: #2a2a35;
 }
 
-row:selected {
+/* :selected = GtkListBox (old), .selected = GtkListView/ColumnView (new gtk4) */
+row:selected,
+row.selected,
+.item:selected,
+.item.selected,
+listview row:selected,
+listview row.selected,
+columnview row:selected,
+columnview row.selected,
+treeview row:selected,
+treeview.view:selected,
+treeview.view:selected:focus,
+treeview.view:selected:focus-within {
     background-color: #786FA6;
     color: #efefef;
+}
+
+row:selected:hover,
+row.selected:hover,
+.item:selected:hover,
+.item.selected:hover {
+    background-color: #9088bc;
 }
 
 /* ── Notebook / tabs ─────────────────────────────────────────────────────── */
@@ -495,4 +518,191 @@ expander title {
 
 expander title:hover {
     background-color: #2a2a35;
+}
+
+/* ── Cell renderer toggles (treeview checkboxes, nicotine+ interests etc) ── */
+check.cell, radio.cell {
+    min-width: 16px;
+    min-height: 16px;
+    background-color: #252530;
+    border: 1px solid #3d3d3d;
+    border-radius: 4px;
+    color: #efefef;
+    margin: 2px;
+}
+
+check.cell:checked, radio.cell:checked {
+    background-color: #786FA6;
+    border-color: #786FA6;
+    color: #efefef;
+}
+
+check.cell:indeterminate {
+    background-color: #5a5480;
+    border-color: #5a5480;
+    color: #efefef;
+}
+
+radio.cell {
+    border-radius: 50%;
+}
+
+/* ── Focus rings ─────────────────────────────────────────────────────────── */
+*:focus {
+    outline: none;
+}
+
+button:focus-visible,
+entry:focus-visible,
+checkbutton:focus-visible,
+radiobutton:focus-visible,
+switch:focus-visible,
+scale:focus-visible,
+combobox:focus-visible {
+    outline: 2px solid alpha(#786FA6, 0.7);
+    outline-offset: 2px;
+}
+
+/* ── Toolbar / ActionBar ─────────────────────────────────────────────────── */
+toolbar, .toolbar, actionbar {
+    background-color: #1e1e26;
+    border-bottom: 1px solid #3d3d3d;
+    padding: 4px;
+}
+
+actionbar > revealer > box {
+    background-color: #1e1e26;
+    border-top: 1px solid #3d3d3d;
+    padding: 4px 6px;
+}
+
+toolbar button, .toolbar button {
+    background-color: transparent;
+    border-color: transparent;
+    color: #efefef;
+    min-height: 28px;
+    min-width: 28px;
+    padding: 4px;
+    border-radius: 6px;
+}
+
+toolbar button:hover, .toolbar button:hover {
+    background-color: #2a2a35;
+    border-color: #3d3d3d;
+}
+
+toolbar button:checked, .toolbar button:checked {
+    background-color: #786FA6;
+    color: #efefef;
+}
+
+/* ── Spinbutton arrows ───────────────────────────────────────────────────── */
+spinbutton button {
+    background-color: transparent;
+    border: none;
+    color: #efefef;
+    min-height: 0;
+    min-width: 20px;
+    padding: 0 4px;
+}
+
+spinbutton button:hover {
+    background-color: #2a2a35;
+}
+
+spinbutton button:active {
+    background-color: #786FA6;
+    color: #efefef;
+}
+
+/* ── Stack switcher ──────────────────────────────────────────────────────── */
+stackswitcher button {
+    background-color: transparent;
+    border: none;
+    color: #bbbbbb;
+    border-radius: 6px;
+    min-height: 30px;
+    padding: 4px 12px;
+}
+
+stackswitcher button:hover {
+    background-color: #2a2a35;
+    color: #efefef;
+}
+
+stackswitcher button:checked {
+    background-color: #786FA6;
+    color: #efefef;
+}
+
+/* ── Link buttons ────────────────────────────────────────────────────────── */
+button.link {
+    background-color: transparent;
+    border: none;
+    color: #9d94c9;
+    padding: 0;
+    min-height: 0;
+}
+
+button.link:hover {
+    color: #786FA6;
+    background-color: transparent;
+}
+
+/* ── Infobar ─────────────────────────────────────────────────────────────── */
+infobar {
+    background-color: #252530;
+    color: #efefef;
+    border-bottom: 1px solid #3d3d3d;
+}
+
+infobar.info    { border-left: 3px solid #786FA6; }
+infobar.warning { border-left: 3px solid #e5a050; }
+infobar.error   { border-left: 3px solid #cf6679; }
+infobar.success { border-left: 3px solid #84a867; }
+
+/* ── Paned ───────────────────────────────────────────────────────────────── */
+paned separator {
+    background-color: #3d3d3d;
+    min-width: 1px;
+    min-height: 1px;
+}
+
+paned separator:hover {
+    background-color: #786FA6;
+}
+
+/* ── Spinner ─────────────────────────────────────────────────────────────── */
+spinner {
+    color: #786FA6;
+}
+
+/* ── ColumnView headers ──────────────────────────────────────────────────── */
+columnview header button {
+    background-color: #252530;
+    color: #bbbbbb;
+    border-right: 1px solid #3d3d3d;
+    border-bottom: 1px solid #3d3d3d;
+    border-radius: 0;
+    min-height: 28px;
+}
+
+columnview header button:hover {
+    background-color: #2a2a35;
+    color: #efefef;
+}
+
+/* ── Search bar ──────────────────────────────────────────────────────────── */
+searchbar {
+    background-color: #1e1e26;
+    border-bottom: 1px solid #3d3d3d;
+    padding: 4px;
+}
+
+/* ── Overlay / floating elements ─────────────────────────────────────────── */
+.osd {
+    background-color: rgba(30, 30, 38, 0.9);
+    color: #efefef;
+    border-radius: 8px;
+    border: 1px solid #3d3d3d;
 }
