@@ -82,6 +82,13 @@ Item {
             if (notification.urgency === NotificationUrgency.Low) return "#444455"
             return Theme.activeBg
         }
+        readonly property bool hasNamedActions: {
+            for (var i = 0; i < notification.actions.length; i++) {
+                var a = notification.actions[i]
+                if (a.identifier !== "default" && a.text.length > 0) return true
+            }
+            return false
+        }
         // expireTimeout is in seconds; 0 = never, -1 = server default (use 5s)
         readonly property int dismissAfterMs: {
             if (notification.urgency === NotificationUrgency.Critical) return 0
@@ -116,7 +123,7 @@ Item {
                 right: parent.right
                 topMargin: 11
                 leftMargin: 14
-                rightMargin: 12
+                rightMargin: card.hasNamedActions ? 90 : 12
                 bottomMargin: 11
             }
             spacing: 3
@@ -187,49 +194,56 @@ Item {
                 textFormat: Text.PlainText
             }
 
-            Row {
-                spacing: 5
-                topPadding: 4
-                visible: card.notification.actions.length > 0
+        }
 
-                Repeater {
-                    model: card.notification.actions
+        Row {
+            anchors {
+                right: parent.right
+                rightMargin: 12
+                verticalCenter: parent.verticalCenter
+            }
+            spacing: 5
+            visible: card.hasNamedActions
 
-                    Rectangle {
-                        required property var modelData
+            Repeater {
+                model: card.notification.actions
 
-                        property bool btnHovered: false
+                Rectangle {
+                    required property var modelData
 
-                        height: 20
-                        width: btnText.implicitWidth + 14
-                        color: btnHovered ? Theme.hoverBg : "transparent"
-                        border.color: Theme.border
-                        border.width: 1
-                        radius: 4
+                    property bool btnHovered: false
 
-                        Behavior on color {
-                            ColorAnimation { duration: 120 }
-                        }
+                    visible: modelData.identifier !== "default" && modelData.text.length > 0
+                    height: 22
+                    width: btnText.implicitWidth + 16
+                    color: btnHovered ? Theme.hoverBg : Theme.activeBg
+                    border.color: Theme.border
+                    border.width: 1
+                    radius: 4
 
-                        Text {
-                            id: btnText
-                            anchors.centerIn: parent
-                            text: modelData.text
-                            color: Theme.fg
-                            font.family: Theme.fontFamily
-                            font.pixelSize: 11
-                            antialiasing: Theme.antialiasing
-                        }
+                    Behavior on color {
+                        ColorAnimation { duration: 120 }
+                    }
 
-                        MouseArea {
-                            anchors.fill: parent
-                            hoverEnabled: true
-                            onEntered: parent.btnHovered = true
-                            onExited: parent.btnHovered = false
-                            onClicked: mouse => {
-                                mouse.accepted = true
-                                modelData.invoke()
-                            }
+                    Text {
+                        id: btnText
+                        anchors.centerIn: parent
+                        text: modelData.text
+                        color: Theme.fgActive
+                        font.family: Theme.fontFamily
+                        font.pixelSize: 11
+                        font.weight: Font.Medium
+                        antialiasing: Theme.antialiasing
+                    }
+
+                    MouseArea {
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        onEntered: parent.btnHovered = true
+                        onExited: parent.btnHovered = false
+                        onClicked: mouse => {
+                            mouse.accepted = true
+                            modelData.invoke()
                         }
                     }
                 }
