@@ -429,6 +429,50 @@ menuitem:disabled {
     color: #555566;
 }
 
+/* GTK4: context menus are GtkPopoverMenu — items are modelbutton nodes, not menuitem */
+popover.menu {
+    background-color: #252530;
+    color: #efefef;
+    border: 1px solid #3d3d3d;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+    padding: 4px 0;
+}
+
+popover.menu > contents {
+    padding: 0;
+    background-color: transparent;
+}
+
+popover.menu modelbutton {
+    min-height: 28px;
+    padding: 4px 12px;
+    color: #efefef;
+    border-radius: 4px;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+popover.menu modelbutton:hover {
+    background-color: #786FA6;
+    color: #efefef;
+}
+
+popover.menu modelbutton:disabled {
+    color: #555566;
+}
+
+popover.menu modelbutton.has-submenu > arrow {
+    color: #bbbbbb;
+}
+
+popover.menu separator {
+    background-color: #3d3d3d;
+    min-height: 1px;
+    margin: 4px 0;
+}
+
 /* ── Popovers ────────────────────────────────────────────────────────────── */
 popover {
     background-color: #252530;
