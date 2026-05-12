@@ -42,7 +42,7 @@ vim.keymap.set('n', '<leader>ss',
 -- grep file name
 vim.keymap.set('n', '<leader>sf',
     function()
-        require('telescope.builtin').find_files({ search = vim.fn.input('grep > ') })
+        require('telescope.builtin').find_files()
     end,
     { desc = 'grep file name' })
 
