@@ -47,12 +47,12 @@ alias sshmount="sshfs root@imre.al:/var/www ~/imre.al"
 ssh() { TERM=xterm-256color command ssh "$@" }
 alias mail="mailsync > /dev/null 2>&1 &> /dev/null 2>&1 & bash -c neomutt"
 alias music="ncmpcpp -q"
-alias ls="eza --long --no-user --git --icons"
-alias cls="clear && eza --long --no-user --git --icons"
+alias ls="eza --long --no-user --git --icons --ignore-glob=thunderbird"
+alias cls="clear && eza --long --no-user --git --icons --ignore-glob=thunderbird"
 alias zbr="zig build run"
 alias jz="~/clone/jetzig/cli/zig-out/bin/jetzig"
 alias cdc="cd ~/clone"
-alias c="claude"
+alias c="claude --model claude-opus-4-6"
 
 eval "$(starship init zsh)"
 
