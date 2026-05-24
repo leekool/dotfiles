@@ -21,15 +21,7 @@ ShellRoot {
             }
 
             implicitHeight: Theme.barHeight
-            color: Theme.bg
-
-            Rectangle {
-                anchors.bottom: parent.bottom
-                anchors.left: parent.left
-                anchors.right: parent.right
-                height: 1
-                color: Theme.separator
-            }
+            color: "#e61e1e26"
 
             // Left: window title
             WindowTitle {

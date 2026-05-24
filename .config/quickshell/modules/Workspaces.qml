@@ -24,7 +24,7 @@ RowLayout {
 
             Layout.preferredWidth: 24
             height: 20
-            color: hovered ? Theme.hoverBg : Theme.bg
+            color: hovered ? Theme.hoverBg : "transparent"
 
             Text {
                 anchors.centerIn: parent
