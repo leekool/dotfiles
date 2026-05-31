@@ -92,7 +92,16 @@ local function load_cmp_and_luasnip()
         },
     }
 
-    -- Set configuration for specific filetype.
+    cmp.setup.filetype('toml', {
+        sources = cmp.config.sources({
+            { name = 'crates' },
+            { name = 'nvim_lsp' },
+        }, {
+            { name = 'buffer' },
+            { name = 'path' },
+        }),
+    })
+
     cmp.setup.filetype('gitcommit', {
         sources = cmp.config.sources({
             { name = 'git' },

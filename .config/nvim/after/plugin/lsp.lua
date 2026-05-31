@@ -59,6 +59,37 @@ vim.lsp.enable("marksman")
 vim.lsp.config("gopls", with_defaults())
 vim.lsp.enable("gopls")
 
+if vim.fn.executable("rust-analyzer") == 1 then
+    vim.lsp.config("rust_analyzer", with_defaults({
+        on_attach = function(client, bufnr)
+            if client.server_capabilities.inlayHintProvider then
+                vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+            end
+        end,
+        settings = {
+            ["rust-analyzer"] = {
+                check = {
+                    command = "clippy",
+                },
+                cargo = {
+                    allFeatures = true,
+                },
+                procMacro = {
+                    enable = true,
+                },
+                inlayHints = {
+                    typeHints = { enable = true },
+                    parameterHints = { enable = true },
+                    chainingHints = { enable = true },
+                    closingBraceHints = { enable = true, minLines = 20 },
+                    lifetimeElisionHints = { enable = "skip_trivial" },
+                },
+            },
+        },
+    }))
+    vim.lsp.enable("rust_analyzer")
+end
+
 if servers.has_npm_servers() then
     vim.lsp.config("html", with_defaults({
         filetypes = { "html", "templ" },

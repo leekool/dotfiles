@@ -23,7 +23,7 @@ require("lazy").setup({
         config = function()
             vim.opt.rtp:prepend(vim.fn.stdpath("data") .. "/site")
             require('nvim-treesitter').setup {
-                ensure_installed = { "javascript", "typescript", "lua", "vim", "vimdoc", "query", "scss", "svelte", "html", "css", "go" },
+                ensure_installed = { "javascript", "typescript", "lua", "vim", "vimdoc", "query", "scss", "svelte", "html", "css", "go", "rust", "toml" },
                 sync_install = false,
                 compilers = { "clang", "gcc" },
                 highlight = {
@@ -56,6 +56,7 @@ require("lazy").setup({
                     svelte          = { "biome" },
                     json            = { "biome" },
                     jsonc           = { "biome" },
+                    rust            = { "rustfmt" },
                 },
             })
         end,
@@ -100,6 +101,7 @@ require("lazy").setup({
     {
         "windwp/nvim-ts-autotag",
         dependencies = { "nvim-treesitter/nvim-treesitter" },
+        ft = { "html", "javascript", "javascriptreact", "typescript", "typescriptreact", "svelte", "vue", "xml", "markdown" },
         config =
             function()
                 require("nvim-ts-autotag").setup()
@@ -210,5 +212,19 @@ require("lazy").setup({
     {
         "OXY2DEV/markview.nvim",
         lazy = false,
+    },
+
+    {
+        "saecki/crates.nvim",
+        event = "BufRead Cargo.toml",
+        dependencies = { "nvim-cmp/nvim-cmp" },
+        config = function()
+            local crates = require("crates")
+            crates.setup({
+                completion = {
+                    cmp = { enabled = true },
+                },
+            })
+        end,
     },
 })
