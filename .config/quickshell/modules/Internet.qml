@@ -3,8 +3,12 @@ import Quickshell.Io
 
 Item {
     id: root
-    implicitHeight: Theme.barHeight
-    implicitWidth: label.implicitWidth + Theme.modulePadding
+    implicitWidth: Theme.barWidth
+    implicitHeight: stack.implicitHeight
+
+    property string icon:      "󰖩"
+    property string iface:     "…"
+    property color  iconColor: Theme.fg
 
     Timer {
         interval: 5000
@@ -24,29 +28,46 @@ Item {
             onStreamFinished: {
                 var iface = text.trim()
                 if (iface.length === 0) {
-                    label.text  = "󰖪 down"
-                    label.color = "#FC5C65"
+                    root.icon      = "󰖪"
+                    root.iface     = "down"
+                    root.iconColor = "#FC5C65"
                 } else if (iface.startsWith("w")) {
-                    label.text  = "󰖩 " + iface
-                    label.color = Theme.fg
+                    root.icon      = "󰖩"
+                    root.iface     = iface
+                    root.iconColor = Theme.fg
                 } else {
-                    label.text  = "󰈀 " + iface
-                    label.color = Theme.fg
+                    root.icon      = "󰈀"
+                    root.iface     = iface
+                    root.iconColor = Theme.fg
                 }
             }
         }
     }
 
-    Text {
-        id: label
+    Column {
+        id: stack
         anchors.centerIn: parent
-        height: Theme.barHeight
-        verticalAlignment: Text.AlignVCenter
-        text: "󰖩 …"
-        color: Theme.fg
-        font.family: Theme.fontFamily
-        font.pixelSize: Theme.fontSize
-        font.letterSpacing: Theme.letterSpacing
-        antialiasing: Theme.antialiasing
+        spacing: 1
+
+        Text {
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: root.icon
+            color: root.iconColor
+            font.family: Theme.fontFamily
+            font.pixelSize: Theme.fontSize
+            antialiasing: Theme.antialiasing
+        }
+
+        /* Text {
+            anchors.horizontalCenter: parent.horizontalCenter
+            horizontalAlignment: Text.AlignHCenter
+            width: Theme.barWidth - 4
+            elide: Text.ElideRight
+            text: root.iface
+            color: Theme.fg
+            font.family: Theme.fontFamily
+            font.pixelSize: Theme.fontSize - 3
+            antialiasing: Theme.antialiasing
+        } */
     }
 }

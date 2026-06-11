@@ -3,7 +3,7 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Hyprland
 
-RowLayout {
+ColumnLayout {
     spacing: 0
 
     Repeater {
@@ -22,8 +22,8 @@ RowLayout {
             }
             property bool hasWindows: wsObject !== null && wsObject.toplevels.values.length > 0
 
-            Layout.preferredWidth: 24
-            height: 20
+            Layout.fillWidth: true
+            Layout.preferredHeight: 24
             color: hovered ? Theme.hoverBg : "transparent"
 
             Text {

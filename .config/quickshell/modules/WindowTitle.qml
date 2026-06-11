@@ -4,9 +4,13 @@ import Quickshell.Hyprland
 
 Item {
     id: root
-    implicitHeight: 20
+    implicitWidth: Theme.barWidth
+    // Height hugs the rotated title's run length (its horizontal extent before
+    // rotation), capped so a giant title can't shove the workspaces down.
+    implicitHeight: Math.min(titleMetrics.width, maxTitleRun)
 
     property string windowTitle: ""
+    property int maxTitleRun: 320
 
     // titles that wine / other phantom windows produce briefly and which would
     // otherwise flash through the bar — skip the update entirely so the
@@ -37,19 +41,31 @@ Item {
         }
     }
 
+    // Measures the title's natural width to size the (rotated) slot — decoupled
+    // from the displayed Text so there's no binding loop with its elide width.
+    TextMetrics {
+        id: titleMetrics
+        font.family: Theme.fontFamily
+        font.pixelSize: Theme.fontSize
+        font.letterSpacing: Theme.letterSpacing
+        text: root.windowTitle
+    }
+
+    // Rotated 90° so the title runs vertically down the bar. The Text's own
+    // width (its horizontal axis pre-rotation) becomes the vertical run after
+    // rotation, so binding it to root.height makes long titles elide to fit.
     Text {
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.left: parent.left
-        anchors.leftMargin: 7
+        id: titleText
+        anchors.centerIn: parent
+        rotation: 90
+        width: root.height
+        elide: Text.ElideRight
+        horizontalAlignment: Text.AlignHCenter
         text: root.windowTitle
         color: Theme.fgActive
         font.family: Theme.fontFamily
         font.pixelSize: Theme.fontSize
         font.letterSpacing: Theme.letterSpacing
-        font.weight: Theme.fontWeight
         antialiasing: Theme.antialiasing
-        font.kerning: Theme.kerning
-        font.preferShaping: Theme.preferShaping
-        renderType: Theme.renderType
     }
 }

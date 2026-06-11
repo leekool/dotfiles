@@ -2,32 +2,45 @@ import QtQuick
 
 Item {
     id: root
-    implicitHeight: Theme.barHeight
-    implicitWidth: label.implicitWidth + Theme.modulePadding / 2
+    implicitWidth: Theme.barWidth
+    implicitHeight: col.implicitHeight + 2
 
-    function formatted() {
-        return " " + Qt.formatDateTime(new Date(), "ddd dd MMM  hh:mm")
-    }
+    function hh() { return Qt.formatDateTime(new Date(), "HH") }
+    function mm() { return Qt.formatDateTime(new Date(), "mm") }
 
     Timer {
         interval: 10000
         repeat: true
         running: true
         triggeredOnStart: true
-        onTriggered: label.text = root.formatted()
+        onTriggered: { hhText.text = root.hh(); mmText.text = root.mm() }
     }
 
-    Text {
-        id: label
-        anchors.left: parent.left
-        anchors.verticalCenter: parent.verticalCenter
-        height: Theme.barHeight
-        verticalAlignment: Text.AlignVCenter
-        text: root.formatted()
-        color: Theme.fg
-        font.family: Theme.fontFamily
-        font.pixelSize: Theme.fontSize
-        font.letterSpacing: Theme.letterSpacing
-        antialiasing: Theme.antialiasing
+    Column {
+        id: col
+        anchors.centerIn: parent
+        spacing: 0
+
+        Text {
+            id: hhText
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: root.hh()
+            color: Theme.fgActive
+            font.family: Theme.fontFamily
+            font.pixelSize: Theme.fontSize + 1
+            font.letterSpacing: Theme.letterSpacing
+            antialiasing: Theme.antialiasing
+        }
+
+        Text {
+            id: mmText
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: root.mm()
+            color: Theme.fg
+            font.family: Theme.fontFamily
+            font.pixelSize: Theme.fontSize + 1
+            font.letterSpacing: Theme.letterSpacing
+            antialiasing: Theme.antialiasing
+        }
     }
 }

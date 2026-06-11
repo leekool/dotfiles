@@ -3,15 +3,15 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Services.SystemTray
 
-RowLayout {
-    spacing: 6
+ColumnLayout {
+    spacing: 8
 
     Repeater {
         model: SystemTray.items
 
         Item {
             required property SystemTrayItem modelData
-            implicitWidth: 14
+            implicitWidth: Theme.barWidth
             implicitHeight: 20
 
             Image {

@@ -15,41 +15,54 @@ ShellRoot {
             screen: modelData
 
             anchors {
-                top: true
-                left: true
-                right: true
+                top:    true
+                bottom: true
+                right:  true
             }
 
-            implicitHeight: Theme.barHeight
+            implicitWidth: Theme.barWidth
             color: "#e61e1e26"
 
-            // Left: window title
-            WindowTitle {
-                anchors.left: parent.left
-                anchors.top: parent.top
-                anchors.bottom: parent.bottom
-                anchors.right: centerWorkspaces.left
-            }
-
-            // Center: workspaces — dead centre
+            // Workspaces — anchored to the dead vertical centre of the bar,
+            // independent of the top/bottom column flow. Full bar width so the
+            // dots stay horizontally centred.
             Workspaces {
-                id: centerWorkspaces
-                anchors.centerIn: parent
+                anchors.left:           parent.left
+                anchors.right:          parent.right
+                anchors.verticalCenter: parent.verticalCenter
             }
 
-            // Right: status modules
-            RowLayout {
-                anchors.right: parent.right
-                anchors.top: parent.top
-                anchors.bottom: parent.bottom
-                spacing: 0
+            ColumnLayout {
+                anchors.fill: parent
+                spacing: 8
 
-                Tray {}
-                Internet {}
-                Volume { screen: modelData }
-                Memory {}
-                Cpu {}
-                Clock {}
+                // Top: clock (HH / MM)
+                Clock {
+                    Layout.alignment: Qt.AlignHCenter
+                    Layout.topMargin: 6
+                }
+
+                // Window title — rotated 90°, sits below the clock
+                WindowTitle {
+                    Layout.alignment: Qt.AlignHCenter
+                }
+
+                // Flexible spacer fills the middle (workspaces float here, centred)
+                // and pushes the status cluster to the bottom
+                Item { Layout.fillHeight: true }
+
+                // Bottom: status cluster
+                ColumnLayout {
+                    Layout.alignment: Qt.AlignHCenter
+                    Layout.bottomMargin: 8
+                    spacing: 6
+
+                    Tray     { Layout.alignment: Qt.AlignHCenter }
+                    Internet { Layout.alignment: Qt.AlignHCenter }
+                    Memory   { Layout.alignment: Qt.AlignHCenter }
+                    Cpu      { Layout.alignment: Qt.AlignHCenter }
+                    Volume   { Layout.alignment: Qt.AlignHCenter; screen: modelData }
+                }
             }
         }
     }

@@ -3,8 +3,8 @@ import Quickshell.Io
 
 Item {
     id: root
-    implicitHeight: Theme.barHeight
-    implicitWidth: Theme.modulePadding + iconText.implicitWidth + 4 + numMetrics.width
+    implicitWidth: Theme.barWidth
+    implicitHeight: stack.implicitHeight
 
     property var prevIdle:  -1
     property var prevTotal: -1
@@ -56,29 +56,29 @@ Item {
         }
     }
 
-    Text {
-        id: iconText
-        anchors.left: parent.left
-        anchors.leftMargin: Theme.modulePadding / 2
-        anchors.verticalCenter: parent.verticalCenter
-        text: "\uDB83\uDEE0"
-        color: Theme.fg
-        font.family: Theme.fontFamily
-        font.pixelSize: Theme.fontSize
-        font.letterSpacing: Theme.letterSpacing
-        antialiasing: Theme.antialiasing
-    }
+    Column {
+        id: stack
+        anchors.centerIn: parent
+        spacing: 1
 
-    Text {
-        anchors.left: iconText.right
-        anchors.leftMargin: 4
-        anchors.verticalCenter: parent.verticalCenter
-        width: numMetrics.width
-        text: root.displayPct
-        color: Theme.fg
-        font.family: Theme.fontFamily
-        font.pixelSize: Theme.fontSize
-        font.letterSpacing: Theme.letterSpacing
-        antialiasing: Theme.antialiasing
+        Text {
+            id: iconText
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: "\uDB83\uDEE0"
+            color: Theme.fg
+            font.family: Theme.fontFamily
+            font.pixelSize: Theme.fontSize
+            antialiasing: Theme.antialiasing
+        }
+
+        Text {
+            anchors.horizontalCenter: parent.horizontalCenter
+            horizontalAlignment: Text.AlignHCenter
+            text: root.displayPct
+            color: Theme.fg
+            font.family: Theme.fontFamily
+            font.pixelSize: Theme.fontSize - 2
+            antialiasing: Theme.antialiasing
+        }
     }
 }

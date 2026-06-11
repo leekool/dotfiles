@@ -19,5 +19,6 @@ QtObject {
 
     // Sizes
     readonly property int barHeight:     20
-    readonly property int modulePadding: 14
+    readonly property int barWidth:      32
+    readonly property int modulePadding: 12
 }

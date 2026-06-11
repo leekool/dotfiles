@@ -33,8 +33,8 @@ Item {
             }
 
             margins {
-                top: Theme.barHeight + 8
-                right: 8
+                top: 8
+                right: Theme.barWidth + 8
             }
 
             implicitWidth: 320

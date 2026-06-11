@@ -4,8 +4,8 @@ import Quickshell.Io
 
 Item {
     id: root
-    implicitHeight: Theme.barHeight
-    implicitWidth: Theme.modulePadding + iconText.implicitWidth + 4 + numMetrics.width
+    implicitWidth: Theme.barWidth
+    implicitHeight: stack.implicitHeight
 
     property var    screen:      null
     property string displayPct:  "…"
@@ -165,13 +165,13 @@ Item {
             id: popupBg
             width: 280
             height: popupCol.implicitHeight + 28
-            y: Theme.barHeight + 10
-            x: {
-                let _track = root.x
-                if (!root.screen) return parent.width - 290
-                let globalCenterX = root.mapToGlobal(root.width / 2, 0).x
-                let localCenterX  = globalCenterX - (root.screen.x || 0)
-                return Math.max(0, Math.min(parent.width - width, localCenterX - 140))
+            x: parent.width - Theme.barWidth - width - 10
+            y: {
+                let _track = root.y
+                if (!root.screen) return 40
+                let globalCenterY = root.mapToGlobal(0, root.height / 2).y
+                let localCenterY  = globalCenterY - (root.screen.y || 0)
+                return Math.max(8, Math.min(parent.height - height, localCenterY - height / 2))
             }
             color: Theme.bg
             radius: 8
@@ -356,27 +356,29 @@ Item {
 
     // ── Bar display ──────────────────────────────────────────────────────────
 
-    Text {
-        id: iconText
-        anchors.left: parent.left
-        anchors.leftMargin: Theme.modulePadding / 2
-        anchors.verticalCenter: parent.verticalCenter
-        text: root.displayIcon
-        color: Theme.fg
-        font.family: Theme.fontFamily
-        font.pixelSize: Theme.fontSize
-        antialiasing: Theme.antialiasing
-    }
+    Column {
+        id: stack
+        anchors.centerIn: parent
+        spacing: 1
 
-    Text {
-        anchors.left: iconText.right
-        anchors.leftMargin: 4
-        anchors.verticalCenter: parent.verticalCenter
-        width: numMetrics.width
-        text: root.displayPct
-        color: Theme.fg
-        font.family: Theme.fontFamily
-        font.pixelSize: Theme.fontSize
-        antialiasing: Theme.antialiasing
+        Text {
+            id: iconText
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: root.displayIcon
+            color: Theme.fg
+            font.family: Theme.fontFamily
+            font.pixelSize: Theme.fontSize
+            antialiasing: Theme.antialiasing
+        }
+
+        Text {
+            anchors.horizontalCenter: parent.horizontalCenter
+            horizontalAlignment: Text.AlignHCenter
+            text: root.displayPct
+            color: Theme.fg
+            font.family: Theme.fontFamily
+            font.pixelSize: Theme.fontSize - 2
+            antialiasing: Theme.antialiasing
+        }
     }
 }

@@ -35,6 +35,23 @@ vim.opt.colorcolumn = "80"
 
 vim.filetype.add({ extension = { templ = "templ" } })
 
+vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
+    pattern = "*.rs",
+    callback = function()
+        if vim.bo.modified then
+            vim.cmd("update")
+        end
+    end,
+})
+
+vim.api.nvim_create_autocmd("DiagnosticChanged", {
+    callback = function()
+        vim.schedule(function()
+            vim.cmd.redraw()
+        end)
+    end,
+})
+
 vim.api.nvim_create_autocmd("FileType", {
     callback = function(args)
         pcall(vim.treesitter.start, args.buf)
